@@ -1,0 +1,9 @@
+.species-wrapper {
+    background: #c4c4c4 !important;
+    overflow-y: auto;
+    height: 100%;
+}
+
+.input-wrapper {
+    width: 18em;
+}

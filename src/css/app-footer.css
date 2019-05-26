@@ -1,0 +1,4 @@
+.app-footer-segment {
+    display: flex;
+    justify-content: space-between;
+}

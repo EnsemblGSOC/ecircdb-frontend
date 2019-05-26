@@ -1,0 +1,14 @@
+.app-header-segment {
+    background: #336 !important;
+}
+
+.app-logo {
+    width: 3.5em;
+    vertical-align: bottom;
+}
+
+.app-logo-text {
+    display: inline;
+    color: #a00000;
+    font-size: 2.5em;
+}

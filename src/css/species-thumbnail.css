@@ -1,0 +1,19 @@
+.thumbnail-wrapper {
+    display: flex;
+    padding: 0 !important;
+    height: 6em;
+}
+
+.thumbnail-container {
+    display: flex;
+}
+
+.thumbnail-text {
+    display: flex;
+    align-items: center;
+    margin-left: 0.5em;
+}
+
+.thumbnail-image {
+    height: 6em;
+}

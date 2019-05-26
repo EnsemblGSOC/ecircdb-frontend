@@ -1,0 +1,13 @@
+.home-wrapper {
+    flex-grow: 1;
+    flex-shrink: 0;
+    display: flex;
+    height: calc(100% - 9em);
+}
+
+.home-description-wrapper {
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
