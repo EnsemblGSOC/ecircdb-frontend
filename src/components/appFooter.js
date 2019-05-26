@@ -11,7 +11,7 @@ class AppFooter extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      lastUpdate: 'hi'
+      lastUpdate: ''
     }
   }
 
@@ -31,12 +31,11 @@ class AppFooter extends React.Component {
             res2.data[0].commit.author.date >= res1.data[0].commit.author.date
               ? res2.data[0].commit.author.date
               : res1.data[0].commit.author.date
-          console.log(moment(lastUpdate).format('MMM, YYYY'))
           this.setState({ lastUpdate: moment(lastUpdate).format('MMM, YYYY') })
         })
       )
       .catch(() => {
-        return 'Error'
+        this.setState({ lastUpdate: 'Error' })
       })
   }
 

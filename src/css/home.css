@@ -11,3 +11,12 @@
     flex-direction: column;
     height: 100%;
 }
+
+.species-no-data-container {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%
+}
