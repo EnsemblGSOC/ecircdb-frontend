@@ -9,7 +9,7 @@ class SpeciesThumbnail extends React.Component {
   render () {
     const { species } = this.props
     return (
-      <Card as={Link} to={`/${species.id}`}>
+      <Card as={Link} to={`/${species.taxon_id}`}>
         <Card.Content className='thumbnail-wrapper'>
           <div className='thumbnail-container'>
             <div className='thumbnail-image-container'>

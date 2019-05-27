@@ -20,7 +20,9 @@ class SpeciesContainer extends React.Component {
             <Loader />
           ) : speciesList.data.length !== 0 ? (
             speciesList.data.map(species => {
-              return <SpeciesThumbnail species={species} key={species.id} />
+              return (
+                <SpeciesThumbnail species={species} key={species.taxon_id} />
+              )
             })
           ) : (
             <div>
