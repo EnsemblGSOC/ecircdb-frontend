@@ -5,8 +5,7 @@ import { Header, Icon, Breadcrumb, Menu } from 'semantic-ui-react'
 
 import Loader from './loader'
 import SpeciesDescription from './speciesDescription'
-import NoAssembly from './noAssembly'
-import WrongAssembly from './wrongAssembly'
+import AssemblySelector from './assemblySelector'
 import { setSpeciesDetails } from '../actions'
 
 import '../css/species-details.css'
@@ -113,14 +112,11 @@ class SpeciesDetails extends React.Component {
                   description={data.description}
                   showDescription={this.state.showDescription}
                 />
-                {data.assemblies.length === 0 ? (
-                  <NoAssembly />
-                ) : (
-                  !data.assemblies.find(
-                    assembly =>
-                      assembly.assemblyId.toString() === match.params.assemblyId
-                  ) ? <WrongAssembly /> : <h1>True data</h1>
-                )}
+                <AssemblySelector
+                  data={data}
+                  speciesId={match.params.speciesId}
+                  assemblyId={match.params.assemblyId}
+                />
               </>
             ) : (
               <Redirect
