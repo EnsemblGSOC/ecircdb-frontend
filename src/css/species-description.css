@@ -1,6 +1,6 @@
 .species-description-wrapper{
     display: flex;
-    margin-top: 1.5rem;
+    margin: 1.5rem 0;
 }
 
 .species-description-thumbnail-container{
@@ -19,12 +19,12 @@
 .species-description-scientific-name {
     font-style: normal;
     font-weight: bold;
-    font-size: 1.75rem;
+    font-size: 1.5rem;
 }
 
 .species-description-common-name {
     font-style: normal;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     line-height: 35px;
 }
 
