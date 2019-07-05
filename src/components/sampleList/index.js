@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default class SpeciesView extends React.Component {
+export default class SampleList extends React.Component {
   state = {}
 
   static getDerivedStateFromProps (nextProps, prevState) {
@@ -12,7 +12,7 @@ export default class SpeciesView extends React.Component {
   render () {
     return (
       <h1>
-        SpeciesView Speicies = {this.props.speciesId} Assembly ={' '}
+        SampleList Speicies = {this.props.speciesId} Assembly ={' '}
         {this.state.assemblyId}
       </h1>
     )

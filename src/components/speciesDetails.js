@@ -1,11 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Redirect, NavLink as Link } from 'react-router-dom'
+import { Redirect, NavLink as Link, Switch, Route } from 'react-router-dom'
 import { Header, Icon, Breadcrumb, Menu } from 'semantic-ui-react'
 
 import Loader from './loader'
 import SpeciesDescription from './speciesDescription'
 import AssemblySelector from './assemblySelector'
+import SpeciesView from './speciesView'
+import SampleList from './sampleList'
+import LocationView from './locationView'
 import { setSpeciesDetails } from '../actions'
 
 import '../css/species-details.css'
@@ -117,6 +120,48 @@ class SpeciesDetails extends React.Component {
                   speciesId={match.params.speciesId}
                   assemblyId={match.params.assemblyId}
                 />
+                {data.assemblies.length !== 0 &&
+                  data.assemblies.find(
+                    assembly =>
+                      assembly.assemblyId.toString() === match.params.assemblyId
+                  ) && (
+                  <Switch>
+                    <Route
+                      path={`/species/${match.params.speciesId}/${
+                        match.params.assemblyId
+                      }`}
+                      exact
+                      render={() => (
+                        <SpeciesView
+                          assemblyId={match.params.assemblyId}
+                          speciesId={match.params.speciesId}
+                        />
+                      )}
+                    />
+                    <Route
+                      path={`/species/${match.params.speciesId}/${
+                        match.params.assemblyId
+                      }/sample_list`}
+                      render={() => (
+                        <SampleList
+                          assemblyId={match.params.assemblyId}
+                          speciesId={match.params.speciesId}
+                        />
+                      )}
+                    />
+                    <Route
+                      path={`/species/${match.params.speciesId}/${
+                        match.params.assemblyId
+                      }/location_view`}
+                      render={() => (
+                        <LocationView
+                          assemblyId={match.params.assemblyId}
+                          speciesId={match.params.speciesId}
+                        />
+                      )}
+                    />
+                  </Switch>
+                )}
               </>
             ) : (
               <Redirect
