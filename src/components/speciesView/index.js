@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 import Loader from '../loader'
 import Highlights from './highlights'
+import Graphs from './graphs'
 import { setSpeciesStats } from '../../actions'
 
 import './css/index.css'
@@ -28,6 +29,7 @@ class SpeciesView extends React.Component {
     ) : (
       <>
         <Highlights data={data} />
+        <Graphs data={data} />
       </>
     )
   }
