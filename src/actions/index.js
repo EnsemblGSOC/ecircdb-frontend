@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import { urlSpeciesList, urlSpeciesDetails } from '../urls'
+import { urlSpeciesList, urlSpeciesDetails, urlSpeciesStats } from '../urls'
 
 export const setSpeciesList = (search = '') => {
   return dispatch => {
@@ -42,6 +42,29 @@ export const setSpeciesDetails = id => {
       .catch(err => {
         dispatch({
           type: 'SET_SPECIES_DETAILS_LOADING',
+          data: false
+        })
+      })
+  }
+}
+
+export const setSpeciesStats = (speciesId, assemblyId) => {
+  return dispatch => {
+    dispatch({
+      type: 'SET_SPECIES_STATS_LOADING',
+      data: true
+    })
+    axios
+      .get(urlSpeciesStats(speciesId, assemblyId))
+      .then(res => {
+        dispatch({
+          type: 'SET_SPECIES_STATS',
+          data: res.data
+        })
+      })
+      .catch(err => {
+        dispatch({
+          type: 'SET_SPECIES_STATS_LOADING',
           data: false
         })
       })

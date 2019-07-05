@@ -1,0 +1,33 @@
+.highlights-heading{
+    font-size: 1.25rem;
+}
+
+.highlights-container {
+    margin-top: 0.5rem !important;
+}
+
+.highlight-card {
+    min-height: 12rem !important;
+    box-shadow: none !important;
+    border: #eaeaea solid 0.5px !important;
+}
+
+.highlight-card-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 2rem !important;
+}
+
+.highlight-description {
+    font-size: 1.25rem;
+    text-align: center;
+}
+
+.highlight-number {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
