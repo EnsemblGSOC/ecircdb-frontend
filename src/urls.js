@@ -13,3 +13,7 @@ export function urlSpeciesList () {
 export function urlSpeciesDetails (id) {
   return `${urlSpeciesList()}${id}/`
 }
+
+export function urlSpeciesStats (speciesId, assemblyId) {
+  return `/api/species_view_stats/${speciesId}/${assemblyId}/`
+}
