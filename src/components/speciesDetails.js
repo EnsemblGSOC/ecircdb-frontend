@@ -34,7 +34,7 @@ class SpeciesDetails extends React.Component {
           <Loader />
         ) : data.taxonId ? (
           <div>
-            {match.params.assemblyId ? (
+            {match.params.assemblyId || data.assemblies.length === 0 ? (
               <>
                 <div className='breadcrumb-wrapper'>
                   <Breadcrumb size='huge'>
