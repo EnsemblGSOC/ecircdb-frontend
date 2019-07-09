@@ -3,9 +3,27 @@
   top: 0;
   bottom: 0;
   position: relative;
-  height: 40vh;
-  border: 1px solid #d4d4d5;
   min-height: 15rem;
-  max-height: 25rem;
-  overflow-y: auto;
+}
+
+.sample-stats-header {
+  display: flex;
+}
+
+.sample-details-text {
+  flex-grow: 1;
+}
+
+.sample-details-buttons {
+  min-width: 19rem;
+  text-align: right;
+}
+
+.sample-details-button {
+  color: white !important;
+  background: #72a1ff !important;
+}
+
+.sample-details-text-description {
+  display: flex;
 }

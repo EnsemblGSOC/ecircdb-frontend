@@ -1,6 +1,7 @@
 const initialState = {
   isLoading: false,
-  data: {}
+  data: {},
+  sample: {}
 }
 
 const sampleDetails = (state = initialState, action) => {
@@ -13,7 +14,8 @@ const sampleDetails = (state = initialState, action) => {
     case 'SET_SAMPLE_DETAILS':
       return {
         isLoading: false,
-        data: action.data
+        data: action.data,
+        sample: action.sample
       }
     default:
       return state

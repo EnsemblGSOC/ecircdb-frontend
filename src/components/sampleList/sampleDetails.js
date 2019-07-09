@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 import Loader from '../loader'
 import { setSampleDetails } from '../../actions'
+import SampleStats from './sampleStats'
 
 import './css/sample-details.css'
 
@@ -25,11 +26,11 @@ class SampleDetails extends React.Component {
     }
   }
   render() {
-    const { sampleId, speciesId, assemblyId, sampleDetails } = this.props
-    const { isLoading, data } = sampleDetails
+    const { sampleDetails } = this.props
+    const { isLoading, data, sample } = sampleDetails
     return (
       <div className="sample-details-wrapper">
-        {isLoading ? <Loader /> : <div>hi</div>}
+        {isLoading ? <Loader /> : <SampleStats data={data} sample={sample} />}
       </div>
     )
   }

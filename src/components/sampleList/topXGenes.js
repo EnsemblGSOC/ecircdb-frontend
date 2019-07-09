@@ -4,38 +4,38 @@ import { Card } from 'semantic-ui-react'
 import createPlotlyComponent from 'react-plotlyjs'
 import Plotly from 'plotly.js/dist/plotly-cartesian'
 
-import './css/graphs.css'
+import '../speciesView/css/graphs.css'
 
 const PlotlyComponent = createPlotlyComponent(Plotly)
 
 export default class Graph extends React.Component {
   render() {
-    var trace1 = {
-      x: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
-      y: [325, 700, 350, 490, 350, 250, 190, 140, 160, 120],
-      text: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10+'],
-      textposition: 'auto',
-      hoverinfo: 'none',
-      name: 'Number of exons',
-      type: 'bar',
-      marker: {
-        color: '#2185d0'
-      }
+    var x = []
+    var y = []
+
+    for (var i = 0; i < 10; i++) {
+      x[i] = Math.random() * 10
+      y[i] = `circRNA-${10 - i}`
     }
 
-    var data = [trace1]
+    x.sort()
+
+    var trace = {
+      x: x,
+      y: y,
+      type: 'bar',
+      orientation: 'h'
+    }
+
+    var data = [trace]
 
     var layout = {
-      title: 'Number of exons',
-      width: 2,
-      font: {
-        family: "Lato,'Helvetica Neue',Arial,Helvetica,sans-serif"
-      },
+      title: 'Top X circRNA based on abundance',
       xaxis: {
-        title: 'Number of exons in circRNA'
+        title: 'Abundance'
       },
       yaxis: {
-        title: 'Number of circRNAs'
+        title: 'circRNA'
       }
     }
 

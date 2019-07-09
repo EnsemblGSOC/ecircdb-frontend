@@ -116,9 +116,9 @@ export const setSampleDetails = (speciesId, assemblyId, sampleId) => {
     })
     axios
       .get(urlSamplesList(speciesId, assemblyId))
-      .then(res => {
+      .then(response => {
         if (
-          res.data.find(x => {
+          response.data.find(x => {
             return String(x.sampleId) === sampleId
           }).sampleId
         ) {
@@ -127,7 +127,10 @@ export const setSampleDetails = (speciesId, assemblyId, sampleId) => {
             .then(res => {
               dispatch({
                 type: 'SET_SAMPLE_DETAILS',
-                data: res.data
+                data: res.data,
+                sample: response.data.find(x => {
+                  return String(x.sampleId) === sampleId
+                })
               })
             })
             .catch(err => {

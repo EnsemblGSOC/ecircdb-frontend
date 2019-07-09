@@ -4,38 +4,35 @@ import { Card } from 'semantic-ui-react'
 import createPlotlyComponent from 'react-plotlyjs'
 import Plotly from 'plotly.js/dist/plotly-cartesian'
 
-import './css/graphs.css'
+import '../speciesView/css/graphs.css'
 
 const PlotlyComponent = createPlotlyComponent(Plotly)
 
 export default class Graph extends React.Component {
   render() {
+    let x = []
+    let y = []
+
+    for (let i = 1; i < 15; i++) {
+      x.push(`gene-${i}`)
+      y.push(Math.random())
+    }
     var trace1 = {
-      x: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
-      y: [325, 700, 350, 490, 350, 250, 190, 140, 160, 120],
-      text: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10+'],
-      textposition: 'auto',
-      hoverinfo: 'none',
-      name: 'Number of exons',
-      type: 'bar',
-      marker: {
-        color: '#2185d0'
-      }
+      x: x,
+      y: y,
+      mode: 'markers',
+      type: 'scatter'
     }
 
     var data = [trace1]
 
     var layout = {
-      title: 'Number of exons',
-      width: 2,
-      font: {
-        family: "Lato,'Helvetica Neue',Arial,Helvetica,sans-serif"
-      },
+      title: 'Gene level circRNA abundance ratio distribution',
       xaxis: {
-        title: 'Number of exons in circRNA'
+        title: 'Genes'
       },
       yaxis: {
-        title: 'Number of circRNAs'
+        title: 'circRNA Abundance ratio'
       }
     }
 

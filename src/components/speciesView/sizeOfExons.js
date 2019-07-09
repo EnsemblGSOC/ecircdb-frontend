@@ -9,7 +9,7 @@ import './css/graphs.css'
 const PlotlyComponent = createPlotlyComponent(Plotly)
 
 export default class Graph extends React.Component {
-  render () {
+  render() {
     var trace1 = {
       x: [
         100,
@@ -83,17 +83,18 @@ export default class Graph extends React.Component {
     }
 
     return (
-      <Card className='highlight-card'>
+      <Card className="highlight-card">
         <div>
           <PlotlyComponent
             data={data}
             layout={layout}
-            className='graph-wrapper'
+            responsive={true}
+            className="graph-wrapper"
           />
         </div>
-        <div className='graph-legend'>
-          <span className='graph-heading'>Heading</span>
-          <span className='graph-description'>(description)</span>
+        <div className="graph-legend">
+          <span className="graph-heading">Heading</span>
+          <span className="graph-description">(description)</span>
         </div>
       </Card>
     )

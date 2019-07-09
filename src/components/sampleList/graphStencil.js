@@ -4,7 +4,7 @@ import { Card } from 'semantic-ui-react'
 import createPlotlyComponent from 'react-plotlyjs'
 import Plotly from 'plotly.js/dist/plotly-cartesian'
 
-import './css/graphs.css'
+import '../speciesView/css/graphs.css'
 
 const PlotlyComponent = createPlotlyComponent(Plotly)
 
