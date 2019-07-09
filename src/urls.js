@@ -9,3 +9,7 @@ export function repoCommits (repoName) {
 export function urlSpeciesList () {
   return '/api/species/'
 }
+
+export function urlSpeciesDetails (id) {
+  return `${urlSpeciesList()}${id}/`
+}
