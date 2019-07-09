@@ -1,20 +1,63 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
-export default class SampleList extends React.Component {
-  state = {}
+import { setSamplesList } from '../../actions'
+import SampleTableHeading from './sampleTableHeading'
+import SampleTableBody from './sampleTableBody'
 
-  static getDerivedStateFromProps (nextProps, prevState) {
-    if (nextProps.assemblyId !== prevState.assemblyId) {
-      return { assemblyId: nextProps.assemblyId }
-    } else return null
+import './css/index.css'
+
+class SampleList extends React.Component {
+  componentDidMount() {
+    const { speciesId, assemblyId } = this.props.match.params
+
+    this.props.SetSamplesList(speciesId, assemblyId)
   }
 
-  render () {
+  componentDidUpdate(prevProps) {
+    const { speciesId, assemblyId } = this.props.match.params
+
+    if (
+      prevProps.match.params.assemblyId !== assemblyId &&
+      prevProps.match.params.speciesId !== speciesId
+    ) {
+      this.props.SetSamplesList(speciesId, assemblyId)
+    }
+  }
+  render() {
+    const { sampleId, speciesId, assemblyId } = this.props.match.params
     return (
-      <h1>
-        SampleList Speicies = {this.props.speciesId} Assembly ={' '}
-        {this.state.assemblyId}
-      </h1>
+      <div className="sample-list-wrapper">
+        <strong className="highlights-heading">Samples List</strong>
+        <div className="sample-details-divider" />
+        <SampleTableHeading speciesId={speciesId} assemblyId={assemblyId} />
+        <SampleTableBody
+          speciesId={speciesId}
+          assemblyId={assemblyId}
+          sampleId={sampleId}
+        />
+      </div>
     )
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    samplesList: state.samplesList
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    SetSamplesList: (speciesId, assemblyId, accession, source, description) => {
+      dispatch(
+        setSamplesList(speciesId, assemblyId, accession, source, description)
+      )
+    }
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SampleList)

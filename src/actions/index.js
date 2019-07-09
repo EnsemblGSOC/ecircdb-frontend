@@ -1,6 +1,11 @@
 import axios from 'axios'
 
-import { urlSpeciesList, urlSpeciesDetails, urlSpeciesStats } from '../urls'
+import {
+  urlSpeciesList,
+  urlSpeciesDetails,
+  urlSpeciesStats,
+  urlSamplesList
+} from '../urls'
 
 export const setSpeciesList = (search = '') => {
   return dispatch => {
@@ -65,6 +70,38 @@ export const setSpeciesStats = (speciesId, assemblyId) => {
       .catch(err => {
         dispatch({
           type: 'SET_SPECIES_STATS_LOADING',
+          data: false
+        })
+      })
+  }
+}
+
+export const setSamplesList = (
+  speciesId,
+  assemblyId,
+  accession = '',
+  source = '',
+  description = ''
+) => {
+  console.log(accession, source, description)
+  return dispatch => {
+    dispatch({
+      type: 'SET_SAMPLES_LIST_LOADING',
+      data: true
+    })
+    axios
+      .get(urlSamplesList(speciesId, assemblyId), {
+        params: { accession, source, description }
+      })
+      .then(res => {
+        dispatch({
+          type: 'SET_SAMPLES_LIST',
+          data: res.data
+        })
+      })
+      .catch(err => {
+        dispatch({
+          type: 'SET_SAMPLES_LIST_LOADING',
           data: false
         })
       })

@@ -1,0 +1,20 @@
+.sample-table-container {
+  display: flex;
+  background: #72a1ff;
+  align-items: center;
+  padding: 0.25rem;
+  border: 1px solid #d4d4d5;
+}
+
+.sample-table-heading-cell {
+  margin: 0 0.5rem;
+  width: 15%;
+}
+
+.sample-table-heading-description {
+  flex-grow: 1;
+}
+
+.color-white {
+  color: white;
+}

@@ -1,0 +1,28 @@
+.sample-row-container {
+  display: flex;
+  background: white;
+  padding: 0.25rem;
+  color: inherit;
+}
+
+.sample-row-container:active,
+.sample-row-container:hover {
+  color: inherit;
+}
+
+.sample-row-alternate {
+  background: #eaeaea;
+}
+
+.sample-row-active {
+  background: rgba(114, 161, 255, 0.75);
+}
+
+.sample-row-cell {
+  margin: 0 0 0 1rem;
+  width: 15%;
+}
+
+.sample-row-description {
+  flex-grow: 1;
+}

@@ -8,16 +8,16 @@ import AverageTPM from './averageTpm'
 import './css/graphs.css'
 
 export default class Graphs extends React.Component {
-  render () {
+  render() {
     return (
-      <div className='graphs-container'>
-        <strong className='graphs-heading'>Statistics</strong>
-        <div className='sample-details-divider' />
+      <div className="graphs-container">
+        <strong className="graphs-heading">Statistics</strong>
+        <div className="sample-details-divider" />
         <Card.Group
           itemsPerRow={3}
           stackable
           doubling
-          className='highlights-container'
+          className="highlights-container"
         >
           <NumberOfExons />
           <SizeOfExons />
