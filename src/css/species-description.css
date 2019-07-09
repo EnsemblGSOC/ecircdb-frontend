@@ -1,0 +1,39 @@
+.species-description-wrapper{
+    display: flex;
+    margin-top: 1.5rem;
+}
+
+.species-description-thumbnail-container{
+
+}
+
+.species-description-thumbnail {
+    width: 6rem;
+    height: 6rem;
+}
+
+.species-description-text-container {
+    padding-left: 1rem;
+}
+
+.species-description-scientific-name {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.75rem;
+}
+
+.species-description-common-name {
+    font-style: normal;
+    font-size: 1.5rem;
+    line-height: 35px;
+}
+
+.species-description-text{
+    font-size: 1.15rem;
+}
+
+.species-description-not-visible{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
