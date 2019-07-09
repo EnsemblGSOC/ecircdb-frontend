@@ -2,6 +2,7 @@
   display: flex;
   background: white;
   padding: 0.25rem;
+  min-height: 4rem;
   color: inherit;
 }
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Header, Icon } from 'semantic-ui-react'
 import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 
 import Loader from '../loader'
 import SampleTableRow from './sampleTableRow'
@@ -22,6 +23,12 @@ class SampleTableBody extends React.Component {
               Sorry, no data.
             </Header>
           </div>
+        ) : !this.props.sampleId ? (
+          <Redirect
+            to={`/species/${speciesId}/${assemblyId}/sample_list/${
+              data[0].sampleId
+            }`}
+          />
         ) : (
           data.map((sample, index) => {
             return (
