@@ -1,0 +1,24 @@
+.species-details-container{
+    flex-grow: 1;
+    padding: 1rem 5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.species-details-no-data-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.active-breadcrumb {
+    color: #72A1FF !important;
+}
+
+.sample-details-divider{
+    margin: 0.25em 0 !important;
+    border-top: 1px solid rgba(0,0,0,.5);
+    border-bottom: 1px solid rgba(255,255,255,.1);
+}
