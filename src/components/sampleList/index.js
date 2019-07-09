@@ -36,6 +36,10 @@ class SampleList extends React.Component {
           assemblyId={assemblyId}
           sampleId={sampleId}
         />
+        <div className="sample-details-container">
+          <strong className="highlights-heading">Samples Details</strong>
+          <div className="sample-details-divider" />
+        </div>
       </div>
     )
   }
