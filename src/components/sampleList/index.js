@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { setSamplesList } from '../../actions'
 import SampleTableHeading from './sampleTableHeading'
 import SampleTableBody from './sampleTableBody'
+import SampleDetails from './sampleDetails'
 
 import './css/index.css'
 
@@ -18,7 +19,7 @@ class SampleList extends React.Component {
     const { speciesId, assemblyId } = this.props.match.params
 
     if (
-      prevProps.match.params.assemblyId !== assemblyId &&
+      prevProps.match.params.assemblyId !== assemblyId ||
       prevProps.match.params.speciesId !== speciesId
     ) {
       this.props.SetSamplesList(speciesId, assemblyId)
@@ -39,6 +40,11 @@ class SampleList extends React.Component {
         <div className="sample-details-container">
           <strong className="highlights-heading">Samples Details</strong>
           <div className="sample-details-divider" />
+          <SampleDetails
+            speciesId={speciesId}
+            assemblyId={assemblyId}
+            sampleId={sampleId}
+          />
         </div>
       </div>
     )

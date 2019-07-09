@@ -1,5 +1,5 @@
 export function logo() {
-  return "/static/elogo.png"
+  return '/static/elogo.png'
 }
 
 export function repoCommits(repoName) {
@@ -7,7 +7,7 @@ export function repoCommits(repoName) {
 }
 
 export function urlSpeciesList() {
-  return "/api/species/"
+  return '/api/species/'
 }
 
 export function urlSpeciesDetails(id) {
@@ -20,4 +20,8 @@ export function urlSpeciesStats(speciesId, assemblyId) {
 
 export function urlSamplesList(speciesId, assemblyId) {
   return `${urlSpeciesList()}samples/${speciesId}/${assemblyId}`
+}
+
+export function urlSampleStats(speciesId, assemblyId, sampleId) {
+  return `/api/sample_view_stats/${speciesId}/${assemblyId}/${sampleId}`
 }

@@ -4,7 +4,8 @@ import {
   urlSpeciesList,
   urlSpeciesDetails,
   urlSpeciesStats,
-  urlSamplesList
+  urlSamplesList,
+  urlSampleStats
 } from '../urls'
 
 export const setSpeciesList = (search = '') => {
@@ -83,7 +84,6 @@ export const setSamplesList = (
   source = '',
   description = ''
 ) => {
-  console.log(accession, source, description)
   return dispatch => {
     dispatch({
       type: 'SET_SAMPLES_LIST_LOADING',
@@ -102,6 +102,50 @@ export const setSamplesList = (
       .catch(err => {
         dispatch({
           type: 'SET_SAMPLES_LIST_LOADING',
+          data: false
+        })
+      })
+  }
+}
+
+export const setSampleDetails = (speciesId, assemblyId, sampleId) => {
+  return dispatch => {
+    dispatch({
+      type: 'SET_SAMPLE_DETAILS_LOADING',
+      data: true
+    })
+    axios
+      .get(urlSamplesList(speciesId, assemblyId))
+      .then(res => {
+        if (
+          res.data.find(x => {
+            return String(x.sampleId) === sampleId
+          }).sampleId
+        ) {
+          axios
+            .get(urlSampleStats(speciesId, assemblyId, sampleId))
+            .then(res => {
+              dispatch({
+                type: 'SET_SAMPLE_DETAILS',
+                data: res.data
+              })
+            })
+            .catch(err => {
+              dispatch({
+                type: 'SET_SAMPLE_DETAILS_LOADING',
+                data: false
+              })
+            })
+        } else {
+          dispatch({
+            type: 'SET_SAMPLE_DETAILS_LOADING',
+            data: false
+          })
+        }
+      })
+      .catch(err => {
+        dispatch({
+          type: 'SET_SAMPLE_DETAILS_LOADING',
           data: false
         })
       })

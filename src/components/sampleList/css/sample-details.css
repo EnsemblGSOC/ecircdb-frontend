@@ -1,0 +1,11 @@
+.sample-details-wrapper {
+  display: block;
+  top: 0;
+  bottom: 0;
+  position: relative;
+  height: 40vh;
+  border: 1px solid #d4d4d5;
+  min-height: 15rem;
+  max-height: 25rem;
+  overflow-y: auto;
+}
