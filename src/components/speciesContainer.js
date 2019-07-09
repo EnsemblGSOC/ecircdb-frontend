@@ -7,11 +7,11 @@ import SpeciesThumbnail from './speciesThumbnail'
 import { setSpeciesList } from '../actions'
 
 class SpeciesContainer extends React.Component {
-  componentDidMount () {
+  componentDidMount() {
     this.props.SetSpeciesList()
   }
 
-  render () {
+  render() {
     const { speciesList } = this.props
     return (
       <div>
@@ -26,9 +26,9 @@ class SpeciesContainer extends React.Component {
             })
           ) : (
             <div>
-              <div className='species-no-data-container'>
-                <Header as='h3' icon textAlign='center'>
-                  <Icon name='frown outline' />
+              <div className="species-no-data-container">
+                <Header as="h3" icon textAlign="center">
+                  <Icon name="frown outline" />
                   Sorry, no data found.
                 </Header>
               </div>

@@ -9,17 +9,17 @@ import { setSpeciesStats } from '../../actions'
 import './css/index.css'
 
 class SpeciesView extends React.Component {
-  componentDidMount () {
+  componentDidMount() {
     this.props.SetSpeciesStats(this.props.speciesId, this.props.assemblyId)
   }
 
-  componentDidUpdate (prevProps) {
+  componentDidUpdate(prevProps) {
     if (prevProps.assemblyId !== this.props.assemblyId) {
       this.props.SetSpeciesStats(this.props.speciesId, this.props.assemblyId)
     }
   }
 
-  render () {
+  render() {
     const { speciesStats } = this.props
     const { data, isLoading } = speciesStats
     return isLoading ? (

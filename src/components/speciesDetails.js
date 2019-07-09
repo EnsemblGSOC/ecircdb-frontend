@@ -18,7 +18,7 @@ class SpeciesDetails extends React.Component {
     showDescription: true
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.props.SetSpeciesDetails(this.props.match.params.speciesId)
   }
 
@@ -28,21 +28,21 @@ class SpeciesDetails extends React.Component {
     })
   }
 
-  render () {
+  render() {
     const { speciesDetails, match } = this.props
     const { data } = speciesDetails
     return (
-      <div className='species-details-container'>
+      <div className="species-details-container">
         {speciesDetails.isLoading ? (
           <Loader />
         ) : data.taxonId ? (
           <div>
             {match.params.assemblyId || data.assemblies.length === 0 ? (
               <>
-                <div className='breadcrumb-wrapper'>
-                  <Breadcrumb size='huge'>
+                <div className="breadcrumb-wrapper">
+                  <Breadcrumb size="huge">
                     <Breadcrumb.Section>
-                      <Header as='h2' className='active-breadcrumb'>
+                      <Header as="h2" className="active-breadcrumb">
                         {data.scientificName}
                       </Header>
                     </Breadcrumb.Section>
@@ -52,9 +52,9 @@ class SpeciesDetails extends React.Component {
                         match.params.assemblyId
                     ) && (
                       <>
-                        <Breadcrumb.Divider icon='right chevron' />
-                        <Breadcrumb.Section className='active-breadcrumb'>
-                          <Header as='h2' className='active-breadcrumb'>
+                        <Breadcrumb.Divider icon="right chevron" />
+                        <Breadcrumb.Section className="active-breadcrumb">
+                          <Header as="h2" className="active-breadcrumb">
                             {
                               data.assemblies.find(
                                 assembly =>
@@ -64,21 +64,21 @@ class SpeciesDetails extends React.Component {
                             }
                           </Header>
                         </Breadcrumb.Section>
-                        <Breadcrumb.Divider icon='right chevron' />
+                        <Breadcrumb.Divider icon="right chevron" />
                         <Breadcrumb.Section>
-                          <Header as='h2'>Species View</Header>
+                          <Header as="h2">Species View</Header>
                         </Breadcrumb.Section>
                       </>
                     )}
                   </Breadcrumb>
                   <strong
-                    className='description-visibility-button'
+                    className="description-visibility-button"
                     onClick={this.changeDescriptionVisibility}
                   >
                     {this.state.showDescription ? 'Hide' : 'Show'} description
                   </strong>
                 </div>
-                <div className='sample-details-divider' />
+                <div className="sample-details-divider" />
                 <Menu>
                   <Menu.Item
                     as={Link}
@@ -94,7 +94,6 @@ class SpeciesDetails extends React.Component {
                     to={`/species/${match.params.speciesId}/${
                       match.params.assemblyId
                     }/sample_list/`}
-                    exact
                   >
                     Sample List
                   </Menu.Item>
@@ -125,43 +124,43 @@ class SpeciesDetails extends React.Component {
                     assembly =>
                       assembly.assemblyId.toString() === match.params.assemblyId
                   ) && (
-                  <Switch>
-                    <Route
-                      path={`/species/${match.params.speciesId}/${
-                        match.params.assemblyId
-                      }`}
-                      exact
-                      render={() => (
-                        <SpeciesView
-                          assemblyId={match.params.assemblyId}
-                          speciesId={match.params.speciesId}
-                        />
-                      )}
-                    />
-                    <Route
-                      path={`/species/${match.params.speciesId}/${
-                        match.params.assemblyId
-                      }/sample_list`}
-                      render={() => (
-                        <SampleList
-                          assemblyId={match.params.assemblyId}
-                          speciesId={match.params.speciesId}
-                        />
-                      )}
-                    />
-                    <Route
-                      path={`/species/${match.params.speciesId}/${
-                        match.params.assemblyId
-                      }/location_view`}
-                      render={() => (
-                        <LocationView
-                          assemblyId={match.params.assemblyId}
-                          speciesId={match.params.speciesId}
-                        />
-                      )}
-                    />
-                  </Switch>
-                )}
+                    <Switch>
+                      <Route
+                        path={`/species/${match.params.speciesId}/${
+                          match.params.assemblyId
+                        }`}
+                        exact
+                        render={() => (
+                          <SpeciesView
+                            assemblyId={match.params.assemblyId}
+                            speciesId={match.params.speciesId}
+                          />
+                        )}
+                      />
+                      <Route
+                        path={`/species/:speciesId/:assemblyId/sample_list`}
+                        exact
+                        component={SampleList}
+                      />
+                      <Route
+                        path={`/species/:speciesId/:assemblyId/sample_list/:sampleId`}
+                        exact
+                        component={SampleList}
+                      />
+                      <Route
+                        path={`/species/${match.params.speciesId}/${
+                          match.params.assemblyId
+                        }/location_view`}
+                        exact
+                        render={() => (
+                          <LocationView
+                            assemblyId={match.params.assemblyId}
+                            speciesId={match.params.speciesId}
+                          />
+                        )}
+                      />
+                    </Switch>
+                  )}
               </>
             ) : (
               <Redirect
@@ -172,9 +171,9 @@ class SpeciesDetails extends React.Component {
             )}
           </div>
         ) : (
-          <div className='species-details-no-data-container'>
-            <Header as='h3' icon textAlign='center'>
-              <Icon name='frown outline' />
+          <div className="species-details-no-data-container">
+            <Header as="h3" icon textAlign="center">
+              <Icon name="frown outline" />
               Sorry, no species with given id.
             </Header>
           </div>
