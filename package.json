@@ -8,6 +8,7 @@
     "plotly.js": "^1.48.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-iframe": "^1.8.0",
     "react-plotlyjs": "^0.4.4",
     "react-redux": "^7.0.3",
     "react-router": "^5.0.0",
