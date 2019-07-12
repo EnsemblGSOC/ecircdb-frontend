@@ -5,7 +5,8 @@ import {
   urlSpeciesDetails,
   urlSpeciesStats,
   urlSamplesList,
-  urlSampleStats
+  urlSampleStats,
+  urlLocationStats
 } from '../urls'
 
 export const setSpeciesList = (search = '') => {
@@ -149,6 +150,30 @@ export const setSampleDetails = (speciesId, assemblyId, sampleId) => {
       .catch(err => {
         dispatch({
           type: 'SET_SAMPLE_DETAILS_LOADING',
+          data: false
+        })
+      })
+  }
+}
+
+export const setLocationStats = (speciesId, assemblyId, onLoad) => {
+  return dispatch => {
+    dispatch({
+      type: 'SET_LOCATION_STATS_LOADING',
+      data: true
+    })
+    axios
+      .get(urlLocationStats(speciesId, assemblyId))
+      .then(res => {
+        onLoad(res.data)
+        dispatch({
+          type: 'SET_LOCATION_STATS',
+          data: res.data
+        })
+      })
+      .catch(err => {
+        dispatch({
+          type: 'SET_LOCATION_STATS_LOADING',
           data: false
         })
       })

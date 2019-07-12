@@ -25,3 +25,7 @@ export function urlSamplesList(speciesId, assemblyId) {
 export function urlSampleStats(speciesId, assemblyId, sampleId) {
   return `/api/sample_view_stats/${speciesId}/${assemblyId}/${sampleId}`
 }
+
+export function urlLocationStats(speciesId, assemblyId) {
+  return `/api/location_view_stats/${speciesId}/${assemblyId}/`
+}

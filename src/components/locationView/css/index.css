@@ -1,0 +1,32 @@
+.location_view_wrapper {
+  margin-top: 1rem;
+}
+
+.location_view_heading {
+  font-size: 1.25rem;
+  margin-right: 0.5rem;
+}
+
+.location_view_heading_or {
+  font-size: 1.25rem;
+  color: #72a1ff;
+  display: block;
+}
+
+.location_view_symbol {
+  margin-left: 0.5rem;
+}
+
+.location_view_url {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.location_view_url > .sample-details-button {
+  margin-left: 1rem;
+}
+
+.browser-iframe-container {
+  margin-top: 1rem;
+}
