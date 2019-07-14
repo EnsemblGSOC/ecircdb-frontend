@@ -22,6 +22,35 @@ class SpeciesDetails extends React.Component {
     this.props.SetSpeciesDetails(this.props.match.params.speciesId)
   }
 
+  activeView = () => {
+    if (window.location.pathname.includes('location_view')) {
+      return (
+        <Breadcrumb.Section>
+          <Header as="h2">Location View</Header>
+        </Breadcrumb.Section>
+      )
+    } else if (window.location.pathname.includes('sample_list')) {
+      return (
+        <>
+          <Breadcrumb.Section>
+            <Header as="h2" className="active-breadcrumb">
+              Sample List
+            </Header>
+          </Breadcrumb.Section>
+          <Breadcrumb.Divider icon="right chevron" />
+          <Breadcrumb.Section>
+            <Header as="h2">{this.props.sampleDetails.sample.accession}</Header>
+          </Breadcrumb.Section>
+        </>
+      )
+    }
+    return (
+      <Breadcrumb.Section>
+        <Header as="h2">Species View</Header>
+      </Breadcrumb.Section>
+    )
+  }
+
   changeDescriptionVisibility = () => {
     this.setState({
       showDescription: !this.state.showDescription
@@ -65,9 +94,7 @@ class SpeciesDetails extends React.Component {
                           </Header>
                         </Breadcrumb.Section>
                         <Breadcrumb.Divider icon="right chevron" />
-                        <Breadcrumb.Section>
-                          <Header as="h2">Species View</Header>
-                        </Breadcrumb.Section>
+                        {this.activeView()}
                       </>
                     )}
                   </Breadcrumb>
@@ -185,7 +212,8 @@ class SpeciesDetails extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    speciesDetails: state.speciesDetails
+    speciesDetails: state.speciesDetails,
+    sampleDetails: state.sampleDetails
   }
 }
 
