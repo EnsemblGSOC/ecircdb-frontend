@@ -6,39 +6,40 @@ import HighlightCard from './highlightCard'
 import './css/highlights.css'
 
 export default class Highlights extends React.Component {
-  render () {
+  render() {
+    const { data } = this.props
     return (
       <div>
-        <strong className='highlights-heading'>Highlights</strong>
-        <div className='sample-details-divider' />
+        <strong className="highlights-heading">Highlights</strong>
+        <div className="sample-details-divider" />
         <Card.Group
           itemsPerRow={3}
           stackable
           doubling
-          className='highlights-container'
+          className="highlights-container"
         >
           <HighlightCard
-            description='Distinct backspliced events identified from all samples of Homo sapiens'
-            number={1650}
+            description="Distinct backspliced events identified from all samples of Homo sapiens"
+            number={data.countBackspliceJunctions}
           />
           <HighlightCard
-            description='Number of samples screened'
-            number={300}
+            description="Number of samples screened"
+            number={data.countTotalSamples}
           />
           <HighlightCard
-            description='Number of distinct tissues screened'
-            number={12}
+            description="Number of distinct tissues screened"
+            number={data.countDistinctTissues}
           />
           <HighlightCard
-            description='Total number of circRNA count / sum(library_size)'
+            description="Total number of circRNA count / sum(library_size)"
             number={1220}
           />
           <HighlightCard
-            description='Average circRNAs/circRNAs count per sample'
+            description="Average circRNAs/circRNAs count per sample"
             number={1220}
           />
           <HighlightCard
-            description='Number of circRNA producing genes'
+            description="Number of circRNA producing genes"
             number={12}
           />
         </Card.Group>
