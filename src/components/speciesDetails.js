@@ -190,11 +190,15 @@ class SpeciesDetails extends React.Component {
                   )}
               </>
             ) : (
-              <Redirect
-                to={`/species/${match.params.speciesId}/${
-                  data.assemblies[0].assemblyId
-                }`}
-              />
+              <>
+                {data.taxonId.toString() === match.params.speciesId && (
+                  <Redirect
+                    to={`/species/${match.params.speciesId}/${
+                      data.assemblies[0].assemblyId
+                    }`}
+                  />
+                )}
+              </>
             )}
           </div>
         ) : (
