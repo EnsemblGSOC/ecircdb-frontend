@@ -20,20 +20,13 @@ export default class Graph extends React.Component {
           color: 'black',
           width: 0.5
         },
-        label: [
-          'Library size (3kb)',
-          'Mapped reads (2kb)',
-          'Spliced reads (1.2kb)',
-          'Canonical spliced reads (0.5kb) ',
-          'Backspliced reads (0.2kb)',
-          'Unmapped reads (1kb)'
-        ]
+        label: this.props.sankey.sankeyLabels
       },
 
       link: {
         source: [0, 1, 2, 2, 0],
         target: [1, 2, 3, 4, 5],
-        value: [2, 1.2, 0.5, 0.2, 1]
+        value: this.props.sankey.sankeyValues
       }
     }
 

@@ -30,7 +30,11 @@ class SampleDetails extends React.Component {
     const { isLoading, data, sample } = sampleDetails
     return (
       <div className="sample-details-wrapper">
-        {isLoading ? <Loader /> : <SampleStats data={data} sample={sample} />}
+        {isLoading ? (
+          <Loader />
+        ) : (
+          data.species && <SampleStats data={data} sample={sample} />
+        )}
       </div>
     )
   }

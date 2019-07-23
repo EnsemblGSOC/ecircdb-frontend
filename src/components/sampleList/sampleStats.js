@@ -40,7 +40,7 @@ export default class SampleStats extends React.Component {
         </div>
         <Header as="h4">Statistics about the sample</Header>
         <Card.Group itemsPerRow={1}>
-          <SankeyFlow data={data} />
+          <SankeyFlow sankey={data.sankey} />
         </Card.Group>
         <Header as="h4">Distributions</Header>
         <Card.Group itemsPerRow={2} stackable>
