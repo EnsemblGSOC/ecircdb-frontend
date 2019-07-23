@@ -2,7 +2,7 @@ import React from 'react'
 import { Card } from 'semantic-ui-react'
 
 import createPlotlyComponent from 'react-plotlyjs'
-import Plotly from 'plotly.js/dist/plotly'
+import Plotly from 'plotly.js/dist/plotly-cartesian'
 
 import './css/graphs.css'
 
@@ -10,16 +10,32 @@ const PlotlyComponent = createPlotlyComponent(Plotly)
 
 export default class Graph extends React.Component {
   render() {
+    var trace1 = {
+      x: this.props.x,
+      y: this.props.y,
+      text: this.props.x,
+      textposition: 'auto',
+      hoverinfo: 'none',
+      name: 'Number of circRNAs per locus',
+      type: 'bar',
+      marker: {
+        color: '#2185d0'
+      }
+    }
+
+    var data = [trace1]
+
     var layout = {
-      title: 'Average (TPM)',
+      title: 'Number of circRNAs per locus',
+      width: 2,
       font: {
         family: "Lato,'Helvetica Neue',Arial,Helvetica,sans-serif"
       },
       xaxis: {
-        title: 'Tissues'
+        title: 'Locus id'
       },
       yaxis: {
-        title: 'TPM'
+        title: 'Number of circRNAs'
       }
     }
 
@@ -27,14 +43,14 @@ export default class Graph extends React.Component {
       <Card className="highlight-card">
         <div>
           <PlotlyComponent
-            data={this.props.data}
+            data={data}
             layout={layout}
             responsive={true}
             className="graph-wrapper"
           />
         </div>
         <div className="graph-legend">
-          <span className="graph-heading">Heading</span>
+          <span className="graph-heading">Number of circRNAs per locus</span>
           <span className="graph-description">(description)</span>
         </div>
       </Card>
