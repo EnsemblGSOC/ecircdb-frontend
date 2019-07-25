@@ -19,7 +19,7 @@ export default class Graph extends React.Component {
         title: 'Tissues'
       },
       yaxis: {
-        title: 'TPM'
+        title: 'log10(TPM)'
       }
     }
 

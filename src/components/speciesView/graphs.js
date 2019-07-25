@@ -15,6 +15,7 @@ export default class Graphs extends React.Component {
     var trace = {
       type: 'box',
       boxmean: 'sd',
+      boxpoints: 'all'
     }
     return (
       <div className="graphs-container">
@@ -26,7 +27,7 @@ export default class Graphs extends React.Component {
           doubling
           className="highlights-container"
         >
-          {/* <CircRNAPerLocus
+           <CircRNAPerLocus
             x={data.circRNAPerLocus.locusId}
             y={data.circRNAPerLocus.count}
           />
@@ -35,7 +36,7 @@ export default class Graphs extends React.Component {
             y={data.circrnaVsLtPerLocus.countBj}
             text={data.circrnaVsLtPerLocus.text}
             size={data.circrnaVsLtPerLocus.nexons}
-          /> */}
+          /> 
           <AverageTPM
             data={data.tpmTissueBoxplot.tissueList.map(tissue => {
               return {
