@@ -32,15 +32,15 @@ export default class Highlights extends React.Component {
           />
           <HighlightCard
             description="Total number of circRNA count / sum(library_size)"
-            number={1220}
+            number={data.circrnaPerLibrarySize}
           />
           <HighlightCard
-            description="Average circRNAs/circRNAs count per sample"
-            number={1220}
+            description="Average circRNAs(circRNAs count per sample)"
+            number={data.circrnaPerSample}
           />
           <HighlightCard
             description="Number of circRNA producing genes"
-            number={12}
+            number={data.countCircrnaProducingGenes}
           />
         </Card.Group>
       </div>
