@@ -29,3 +29,7 @@ export function urlSampleStats(speciesId, assemblyId, sampleId) {
 export function urlLocationStats(speciesId, assemblyId) {
   return `/api/location_view_stats/${speciesId}/${assemblyId}/`
 }
+
+export function urlExportSpeciesView(speciesId, assemblyId) {
+  return `/api/export_species_view_list/${speciesId}/${assemblyId}/`
+}

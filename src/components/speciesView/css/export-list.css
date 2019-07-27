@@ -1,0 +1,13 @@
+.export-list-wrapper {
+  margin-top: 1rem;
+}
+
+.export-field {
+  display: flex;
+  align-items: center;
+  margin: 0.5rem 0;
+}
+
+.export-field-heading {
+  min-width: 10rem;
+}

@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import Loader from '../loader'
 import Highlights from './highlights'
 import Graphs from './graphs'
+import ExportList from './exportList'
 import { setSpeciesStats } from '../../actions'
 
 import './css/index.css'
@@ -22,15 +23,24 @@ class SpeciesView extends React.Component {
   render() {
     const { speciesStats } = this.props
     const { data, isLoading } = speciesStats
-    return isLoading ? (
-      <Loader />
-    ) : Object.keys(data).length === 0 && data.constructor === Object ? (
-      <h1>hi</h1>
-    ) : (
-      <>
-        <Highlights data={data} />
-        <Graphs data={data} />
-      </>
+    return (
+      <div className="species-view-wrapper">
+        {isLoading ? (
+          <Loader />
+        ) : Object.keys(data).length === 0 && data.constructor === Object ? (
+          <h1>No Data</h1>
+        ) : (
+          <>
+            <Highlights data={data} />
+            <Graphs data={data} />
+            <ExportList
+              data={data}
+              speciesId={this.props.speciesId}
+              assemblyId={this.props.assemblyId}
+            />
+          </>
+        )}
+      </div>
     )
   }
 }

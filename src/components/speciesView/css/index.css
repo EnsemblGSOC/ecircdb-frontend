@@ -1,0 +1,7 @@
+.species-view-wrapper {
+  display: block;
+  top: 0;
+  bottom: 0;
+  position: relative;
+  min-height: 35rem;
+}

@@ -27,7 +27,7 @@ export default class Graphs extends React.Component {
           doubling
           className="highlights-container"
         >
-           <CircRNAPerLocus
+          {/* <CircRNAPerLocus
             x={data.circRNAPerLocus.locusId}
             y={data.circRNAPerLocus.count}
           />
@@ -45,7 +45,7 @@ export default class Graphs extends React.Component {
                 name: tissue
               }
             })}
-          />
+          /> */}
           {/* <NumberOfExons />
           <SizeOfExons />
           <AverageTPM />
