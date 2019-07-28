@@ -44,10 +44,10 @@ export default class SampleStats extends React.Component {
         </Card.Group>
         <Header as="h4">Distributions</Header>
         <Card.Group itemsPerRow={2} stackable>
-          <GeneTpm data={data} />
+          {/* <GeneTpm data={data} />
           <CircRnaTpm data={data} />
           <BackspliceVsCanonical data={data} />
-          <CircRnaAr data={data} />
+          <CircRnaAr data={data} /> */}
         </Card.Group>
         <Header as="h4">Top X lists:</Header>
         <Card.Group itemsPerRow={2} stackable>

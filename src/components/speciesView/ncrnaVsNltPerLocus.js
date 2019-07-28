@@ -1,12 +1,8 @@
 import React from 'react'
 import { Card } from 'semantic-ui-react'
-
-import createPlotlyComponent from 'react-plotlyjs'
-import Plotly from 'plotly.js/dist/plotly-cartesian'
+import Plot from 'react-plotly.js'
 
 import './css/graphs.css'
-
-const PlotlyComponent = createPlotlyComponent(Plotly)
 
 export default class Graph extends React.Component {
   render() {
@@ -37,7 +33,7 @@ export default class Graph extends React.Component {
     return (
       <Card className="highlight-card">
         <div>
-          <PlotlyComponent
+          <Plot
             data={data}
             layout={layout}
             responsive={true}

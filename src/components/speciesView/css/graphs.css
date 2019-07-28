@@ -1,33 +1,33 @@
 .graphs-container {
-    margin-top: 1rem;
+  margin-top: 1rem;
 }
 
-.graph-wrapper{
-    max-width: 100%;
-    /* Will use browser scroll to scroll */
-    /* overflow-x: auto; */
-    /* Will use plotly scroll to scroll */
-    overflow-x: hidden;
+.graph-wrapper {
+  width: 100%;
+  /* Will use browser scroll to scroll */
+  /* overflow-x: auto; */
+  /* Will use plotly scroll to scroll */
+  overflow-x: hidden;
 }
 
 .graphs-heading {
-    font-size: 1.25rem;
+  font-size: 1.25rem;
 }
 
 .graph-legend {
-    background: #72A1FF;
-    color: white;
-    min-height: 7rem;
-    padding: 0.5rem 0.5rem;
+  background: #72a1ff;
+  color: white;
+  min-height: 7rem;
+  padding: 0.5rem 0.5rem;
 }
 
 .graph-heading {
-    font-weight: bold;
-    font-size: 1.25rem;
-    display: block;
+  font-weight: bold;
+  font-size: 1.25rem;
+  display: block;
 }
 
-.graph-description{
-    display: block;
-    margin-top: 0.25rem;
+.graph-description {
+  display: block;
+  margin-top: 0.25rem;
 }

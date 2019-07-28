@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card } from 'semantic-ui-react'
+import { Card, Icon } from 'semantic-ui-react'
 
 import HighlightCard from './highlightCard'
 
@@ -10,7 +10,10 @@ export default class Highlights extends React.Component {
     const { data } = this.props
     return (
       <div>
-        <strong className="highlights-heading">Highlights</strong>
+        <strong className="highlights-heading">
+          <Icon name="info circle" />
+          Highlights
+        </strong>
         <div className="sample-details-divider" />
         <Card.Group
           itemsPerRow={3}

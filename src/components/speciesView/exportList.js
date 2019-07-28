@@ -77,7 +77,10 @@ export default class ExportList extends React.Component {
 
     return (
       <div className="export-list-wrapper">
-        <strong className="graphs-heading">Export List</strong>
+        <strong className="graphs-heading">
+          <Icon name="download" />
+          Export List
+        </strong>
         <div className="sample-details-divider" />
         <div className="export-field">
           <strong className="export-field-heading">Chromosomes: </strong>

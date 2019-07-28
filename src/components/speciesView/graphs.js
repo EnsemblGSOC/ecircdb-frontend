@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card } from 'semantic-ui-react'
+import { Card, Icon } from 'semantic-ui-react'
 
 import CircRNAPerLocus from './circRNAPerLocus'
 import CircRNAVSLTPerLocus from './ncrnaVsNltPerLocus'
@@ -15,11 +15,14 @@ export default class Graphs extends React.Component {
     var trace = {
       type: 'box',
       boxmean: 'sd',
-      boxpoints: 'all'
+      boxpoints: false
     }
     return (
       <div className="graphs-container">
-        <strong className="graphs-heading">Statistics</strong>
+        <strong className="graphs-heading">
+          <Icon name="area graph" />
+          Statistics
+        </strong>
         <div className="sample-details-divider" />
         <Card.Group
           itemsPerRow={3}
@@ -27,7 +30,7 @@ export default class Graphs extends React.Component {
           doubling
           className="highlights-container"
         >
-          {/* <CircRNAPerLocus
+          <CircRNAPerLocus
             x={data.circRNAPerLocus.locusId}
             y={data.circRNAPerLocus.count}
           />
@@ -36,7 +39,7 @@ export default class Graphs extends React.Component {
             y={data.circrnaVsLtPerLocus.countBj}
             text={data.circrnaVsLtPerLocus.text}
             size={data.circrnaVsLtPerLocus.nexons}
-          /> 
+          />
           <AverageTPM
             data={data.tpmTissueBoxplot.tissueList.map(tissue => {
               return {
@@ -45,7 +48,7 @@ export default class Graphs extends React.Component {
                 name: tissue
               }
             })}
-          /> */}
+          />
           {/* <NumberOfExons />
           <SizeOfExons />
           <AverageTPM />
