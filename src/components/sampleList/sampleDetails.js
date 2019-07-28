@@ -26,14 +26,22 @@ class SampleDetails extends React.Component {
     }
   }
   render() {
-    const { sampleDetails } = this.props
+    const { sampleDetails, assemblyId, speciesId, sampleId } = this.props
     const { isLoading, data, sample } = sampleDetails
     return (
       <div className="sample-details-wrapper">
         {isLoading ? (
           <Loader />
         ) : (
-          data.species && <SampleStats data={data} sample={sample} />
+          data.species && (
+            <SampleStats
+              data={data}
+              sample={sample}
+              speciesId={speciesId}
+              assemblyId={assemblyId}
+              sampleId={sampleId}
+            />
+          )
         )}
       </div>
     )

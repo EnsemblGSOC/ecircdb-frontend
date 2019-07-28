@@ -1,8 +1,8 @@
 import React from 'react'
 import axios from 'axios'
-import { Dropdown, Icon, Form, Button } from 'semantic-ui-react'
+import { Dropdown, Icon, Form, Button, Header } from 'semantic-ui-react'
 
-import { urlExportSpeciesView } from '../../urls.js'
+import { urlExportSampleView } from '../../urls.js'
 
 import './css/export-list.css'
 
@@ -13,7 +13,6 @@ export default class ExportList extends React.Component {
     this.setState({
       chromosome: [],
       classification: [],
-      tissue: [],
       tpm: 0,
       nMethods: 0,
       size: 0,
@@ -31,22 +30,20 @@ export default class ExportList extends React.Component {
       this.setState({
         downloading: true
       })
-      const { speciesId, assemblyId } = this.props
+      const { speciesId, assemblyId, sampleId } = this.props
       const {
         chromosome,
         classification,
-        tissue,
         tpm,
         nMethods,
         size,
         format
       } = this.state
       axios
-        .get(urlExportSpeciesView(speciesId, assemblyId), {
+        .get(urlExportSampleView(speciesId, assemblyId, sampleId), {
           params: {
             chromosome,
             classification,
-            tissue,
             tpm,
             nMethods,
             size,
@@ -77,11 +74,7 @@ export default class ExportList extends React.Component {
 
     return (
       <div className="export-list-wrapper">
-        <strong className="graphs-heading">
-          <Icon name="download" />
-          Export List
-        </strong>
-        <div className="sample-details-divider" />
+        <Header as="h4">Export List:</Header>
         <div className="export-field">
           <strong className="export-field-heading">Chromosomes: </strong>
           <Dropdown
@@ -120,27 +113,6 @@ export default class ExportList extends React.Component {
                 key: classification,
                 text: classification,
                 value: classification
-              }
-            })}
-          />
-        </div>
-        <div className="export-field">
-          <strong className="export-field-heading">Tissues: </strong>
-          <Dropdown
-            placeholder="All tissues"
-            multiple
-            fluid
-            selection
-            search
-            clearable
-            value={this.state.tissue}
-            onChange={this.handleChange}
-            name="tissue"
-            options={data.distinctTissues.map(tissue => {
-              return {
-                key: tissue,
-                text: tissue,
-                value: tissue
               }
             })}
           />

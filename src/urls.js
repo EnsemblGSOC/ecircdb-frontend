@@ -33,3 +33,7 @@ export function urlLocationStats(speciesId, assemblyId) {
 export function urlExportSpeciesView(speciesId, assemblyId) {
   return `/api/export_species_view_list/${speciesId}/${assemblyId}/`
 }
+
+export function urlExportSampleView(speciesId, assemblyId, sampleId) {
+  return `/api/export_sample_view_list/${speciesId}/${assemblyId}/${sampleId}/`
+}

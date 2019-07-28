@@ -8,10 +8,11 @@ import CircRnaAr from './circRnaAr'
 import BackspliceVsCanonical from './backspliceVsCanonical'
 import TopXCircRnas from './topXCircRnas'
 import TopXGenes from './topXGenes'
+import ExportList from './exportList'
 
 export default class SampleStats extends React.Component {
   render() {
-    const { data, sample } = this.props
+    const { data, sample, speciesId, assemblyId, sampleId } = this.props
     return (
       <div>
         <div className="sample-stats-header">
@@ -28,10 +29,6 @@ export default class SampleStats extends React.Component {
             </div>
           </div>
           <div className="sample-details-buttons">
-            <Button className="sample-details-button">
-              <Icon name="file export" />
-              Export
-            </Button>
             <Button className="sample-details-button">
               <Icon name="file download" />
               Quality Report
@@ -54,6 +51,12 @@ export default class SampleStats extends React.Component {
           <TopXCircRnas data={data} />
           <TopXGenes data={data} />
         </Card.Group>
+        <ExportList
+          data={data}
+          speciesId={speciesId}
+          assemblyId={assemblyId}
+          sampleId={sampleId}
+        />
       </div>
     )
   }
