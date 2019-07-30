@@ -26,11 +26,11 @@ export default class Highlights extends React.Component {
             number={data.countBackspliceJunctions}
           />
           <HighlightCard
-            description="Number of samples screened"
+            description="Samples"
             number={data.countTotalSamples}
           />
           <HighlightCard
-            description="Number of distinct tissues screened"
+            description="Tissues"
             number={data.countDistinctTissues}
           />
           <HighlightCard
