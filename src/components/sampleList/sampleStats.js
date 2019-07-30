@@ -18,8 +18,11 @@ export default class SampleStats extends React.Component {
         <div className="sample-stats-header">
           <div className="sample-details-text">
             <div>
-              <strong>{sample.accession}</strong> of{' '}
-              <strong>{sample.source}</strong>
+              <strong>Sample accession: </strong>
+              {sample.accession}
+              <br />
+              <strong>Tissue: </strong>
+              {sample.source}
             </div>
             <div className="sample-details-text-description">
               <div>
@@ -33,6 +36,11 @@ export default class SampleStats extends React.Component {
               <Icon name="file download" />
               Quality Report
             </Button>
+            <ExportList
+              speciesId={speciesId}
+              assemblyId={assemblyId}
+              sampleId={sampleId}
+            />
           </div>
         </div>
         <Header as="h4">Statistics about the sample</Header>
@@ -59,12 +67,6 @@ export default class SampleStats extends React.Component {
           <TopXCircRnas data={data} />
           <TopXGenes data={data} />
         </Card.Group>
-        <ExportList
-          data={data}
-          speciesId={speciesId}
-          assemblyId={assemblyId}
-          sampleId={sampleId}
-        />
       </div>
     )
   }

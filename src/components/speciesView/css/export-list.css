@@ -2,6 +2,10 @@
   margin-top: 1rem;
 }
 
+.export-list-form-wrapper {
+  width: fit-content;
+}
+
 .export-field {
   display: flex;
   align-items: center;

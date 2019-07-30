@@ -20,8 +20,8 @@ export default class Graph extends React.Component {
       },
 
       link: {
-        source: [0, 1, 2, 2, 0],
-        target: [1, 2, 3, 4, 5],
+        source: [0, 1, 0, 1, 5, 0],
+        target: [1, 2, 4, 5, 3, 6],
         value: this.props.sankey.sankeyValues
       }
     }
