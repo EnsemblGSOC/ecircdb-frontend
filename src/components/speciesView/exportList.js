@@ -53,6 +53,12 @@ export default class ExportList extends React.Component {
             downloading: false
           })
         })
+        .catch(err => {
+            alert('Failed')
+            this.setState({
+              downloading: false
+            })
+        })
     } else {
       alert('Already exporting')
     }
@@ -122,7 +128,7 @@ export default class ExportList extends React.Component {
                 name="format"
                 options={[
                   { text: 'CSV', value: 'csv' },
-                  { text: 'FASTA', value: 'fasta' }
+                  { text: 'BED', value: 'bed' }
                 ]}
               />
             </Form.Group>
