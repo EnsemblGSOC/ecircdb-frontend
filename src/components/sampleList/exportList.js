@@ -12,7 +12,7 @@ export default class ExportList extends React.Component {
   componentDidMount() {
     this.setState({
       tpm: 0,
-      nMethods: 0,
+      nMethods: 3,
       format: 'csv',
       downloading: false
     })
