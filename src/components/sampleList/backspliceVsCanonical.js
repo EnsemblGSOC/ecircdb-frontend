@@ -6,24 +6,13 @@ import '../speciesView/css/graphs.css'
 
 export default class Graph extends React.Component {
   render() {
-    let x = []
-    let y = []
-    let text = []
-
-    for (let i = 1; i < 15; i++) {
-      text.push(`gene-${i}`)
-      y.push(Math.random() * 5 + 5)
-      x.push(Math.random() * 2 + 2)
-    }
-
     var trace1 = {
-      x: x,
-      y: y,
+      x: this.props.x,
+      y: this.props.y,
+      text: this.props.text,
       mode: 'markers',
       type: 'scattergl',
-      name: '',
-      text: text,
-      marker: { size: 12 }
+      name: 'Number of exons'
     }
 
     var data = [trace1]

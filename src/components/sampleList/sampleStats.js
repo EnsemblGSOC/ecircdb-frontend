@@ -41,10 +41,18 @@ export default class SampleStats extends React.Component {
         </Card.Group>
         <Header as="h4">Distributions</Header>
         <Card.Group itemsPerRow={2} stackable>
-          {/* <GeneTpm data={data} />
-          <CircRnaTpm data={data} />
-          <BackspliceVsCanonical data={data} />
-          <CircRnaAr data={data} /> */}
+          {/* <GeneTpm data={data} /> */}
+          {/* <CircRnaTpm data={data} /> */}
+          <BackspliceVsCanonical
+            x={data.geneLevelBjVsCj.countCj}
+            y={data.geneLevelBjVsCj.countBj}
+            text={data.geneLevelBjVsCj.text}
+            size={data.geneLevelBjVsCj.nexons}
+          />
+          <CircRnaAr
+            x={data.geneVsCircrnaAbundanceRatio.genes}
+            y={data.geneVsCircrnaAbundanceRatio.circrnaAbundanceRatio}
+          />
         </Card.Group>
         <Header as="h4">Top X lists:</Header>
         <Card.Group itemsPerRow={2} stackable>

@@ -14,7 +14,8 @@ export default class Graph extends React.Component {
       mode: 'markers',
       marker: {
         size: this.props.size
-      }
+      },
+      type: 'scattergl'
     }
 
     var data = [trace1]
