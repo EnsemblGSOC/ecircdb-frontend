@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import { Icon, Dropdown, Button } from 'semantic-ui-react'
+import { Dropdown } from 'semantic-ui-react'
 
 import { urlExportSampleView } from '../../urls.js'
 

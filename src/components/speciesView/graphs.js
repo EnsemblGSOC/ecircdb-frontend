@@ -15,7 +15,7 @@ export default class Graphs extends React.Component {
     var trace = {
       type: 'box',
       boxmean: 'sd',
-      boxpoints: false
+      boxpoints: 'Outliers'
     }
     return (
       <div className="graphs-container">

@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import { Dropdown, Icon, Form, Button } from 'semantic-ui-react'
+import { Icon, Form, Button } from 'semantic-ui-react'
 
 import { urlExportSpeciesView } from '../../urls.js'
 
@@ -54,10 +54,10 @@ export default class ExportList extends React.Component {
           })
         })
         .catch(err => {
-            alert('Failed')
-            this.setState({
-              downloading: false
-            })
+          alert('Failed')
+          this.setState({
+            downloading: false
+          })
         })
     } else {
       alert('Already exporting')
