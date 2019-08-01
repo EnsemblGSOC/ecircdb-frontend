@@ -63,10 +63,8 @@ export default class SampleStats extends React.Component {
           />
         </Card.Group>
         <Header as="h4">Top X lists:</Header>
-        <Card.Group itemsPerRow={2} stackable>
-          <TopXCircRnas data={data} />
-          <TopXGenes data={data} />
-        </Card.Group>
+        <TopXCircRnas data={data.topXStructureData} />
+        {/* <TopXGenes topXCircrnas={data.topXCircrna} /> */}
       </div>
     )
   }
