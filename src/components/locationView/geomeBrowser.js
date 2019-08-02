@@ -8,7 +8,7 @@ export default class GenomeBrowser extends React.Component {
   constructor() {
     super()
     this.state = {
-      iFrameHeight: '0px'
+      iFrameHeight: '600px'
     }
   }
 
@@ -19,7 +19,9 @@ export default class GenomeBrowser extends React.Component {
           height: this.state.iFrameHeight,
           overflow: 'visible'
         }}
-        url={`/genome.html?genome=${this.props.genome}${
+        url={`/genome.html?assemblyId=${this.props.assemblyId}&speciesId=${
+          this.props.speciesId
+        }${
           this.props.chromosome && this.props.start && this.props.end
             ? `&r=${this.props.chromosome}:${this.props.start}-${
                 this.props.end
@@ -30,13 +32,6 @@ export default class GenomeBrowser extends React.Component {
         height={this.state.iFrameHeight}
         scrolling="no"
         className="browser-iframe"
-        onLoad={() => {
-          const obj = ReactDOM.findDOMNode(this)
-          this.setState({
-            iFrameHeight:
-              obj.contentWindow.document.body.scrollHeight + 100 + 'px'
-          })
-        }}
         ref="iframe"
       />
     )

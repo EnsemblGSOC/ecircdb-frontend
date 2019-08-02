@@ -23,8 +23,7 @@ class LocationView extends React.Component {
           chromosome: findGetParameter('chromosome'),
           searchQuery: findGetParameter('chromosome'),
           start: findGetParameter('start'),
-          end: findGetParameter('end'),
-          genome: data.genome
+          end: findGetParameter('end')
         })
         // Callback to set the default chromosome
       }
@@ -37,13 +36,11 @@ class LocationView extends React.Component {
         this.props.speciesId,
         this.props.assemblyId,
         data => {
-          console.log(data)
           // Callback to set the default state
           this.setState({
             chromosome: findGetParameter('chromosome'),
             start: findGetParameter('start'),
-            end: findGetParameter('end'),
-            genome: data.genome
+            end: findGetParameter('end')
           })
         }
       )
@@ -79,8 +76,9 @@ class LocationView extends React.Component {
   }
 
   render() {
-    const { locationStats } = this.props
+    const { locationStats, speciesId, assemblyId } = this.props
     const { data, isLoading } = locationStats
+    const { chromosomes } = data
     const options = [
       { key: 1, text: 'Choice 1', value: 1 },
       { key: 2, text: 'Choice 2', value: 2 },
@@ -103,9 +101,18 @@ class LocationView extends React.Component {
         <strong className="location_view_heading">Location(manually): </strong>
         <Dropdown
           noResultsMessage={null}
+          clearable
           search
           selection
-          options={options}
+          options={
+            chromosomes
+              ? chromosomes.map((chromosome, index) => ({
+                  key: index,
+                  text: chromosome,
+                  value: chromosome
+                }))
+              : []
+          }
           placeholder="Enter chromosome name or choose from top X"
           value={this.state.chromosome}
           searchQuery={this.state.searchQuery}
@@ -117,6 +124,7 @@ class LocationView extends React.Component {
         </strong>
         <Input
           name="start"
+          type="number"
           value={this.state.start}
           placeholder="start"
           onChange={this.handleInputChange}
@@ -126,6 +134,7 @@ class LocationView extends React.Component {
         </strong>
         <Input
           name="end"
+          type="number"
           value={this.state.end}
           placeholder="end"
           onChange={this.handleInputChange}
@@ -145,26 +154,9 @@ class LocationView extends React.Component {
           </Button>
         </div>
         <div className="browser-iframe-container">
-          {/* <Iframe
-            url={`https://ensemblgsoc.github.io/ecircdb-genoverse/?genome=${
-              this.state.genome
-            }${
-              this.state.chromosome && this.state.start && this.state.end
-                ? `&r=${this.state.chromosome}:${this.state.start}-${
-                    this.state.end
-                  }`
-                : ''
-            }`}
-            width="100%"
-            scrolling="no"
-            frameborder="0"
-            className="browser-iframe"
-            onLoad={e => {
-              console.log('hihiho', e.contentWindow.document.body.scrollHeight)
-            }}
-          /> */}
           <GenomeBrowser
-            genome={this.state.genome}
+            speciesId={speciesId}
+            assemblyId={assemblyId}
             chromosome={this.state.chromosome}
             start={this.state.start}
             end={this.state.end}

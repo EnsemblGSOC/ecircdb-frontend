@@ -13,49 +13,64 @@ function findGetParameter(parameterName) {
   return result
 }
 
-new Genoverse({
-  container: '#genoverse', // Where to inject Genoverse (css/jQuery selector/DOM element)
-  // If no genome supplied, it must have at least chromosomeSize, e.g.:
-  // chromosomeSize : 249250621, // chromosome 1, human
-  genome: findGetParameter('genome') || defaultGenome, // see js/genomes/
-  chr: 13,
-  start: 32296945,
-  end: 32370557,
-  plugins: [
-    'controlPanel',
-    'karyotype',
-    'trackControls',
-    'resizer',
-    'focusRegion',
-    'fullscreen',
-    'tooltips',
-    'fileDrop'
-  ],
-  tracks: [
-    Genoverse.Track.Scalebar,
-    Genoverse.Track.extend({
-      name: 'Sequence',
-      controller: Genoverse.Track.Controller.Sequence,
-      model: Genoverse.Track.Model.Sequence.Ensembl,
-      view: Genoverse.Track.View.Sequence,
-      100000: false,
-      resizable: 'auto'
-    }),
-    Genoverse.Track.Gene,
-    Genoverse.Track.extend({
-      name: 'Regulatory Features',
-      url: findGetParameter('trackurl') || defaultTrackUrl,
-      resizable: 'auto',
-      model: Genoverse.Track.Model.extend({ dataRequestLimit: 5000000 }),
-      setFeatureColor: function(f) {
-        f.color = '#AAA'
-      }
-    }),
-    Genoverse.Track.dbSNP
-  ]
-})
+const speciesId = findGetParameter('speciesId')
+const assemblyId = findGetParameter('assemblyId')
 
-setTimeout(function() {
-  document.getElementsByClassName('gv-fullscreen-button')[0].click()
-  document.getElementsByClassName('gv-fullscreen-button')[0].click()
-}, 4000)
+const Http = new XMLHttpRequest()
+const url = `/api/get_genome/${speciesId}/${assemblyId}`
+Http.open('GET', url)
+Http.send()
+
+Http.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    // console.log(Http.response)
+    let genome = JSON.parse(this.responseText)
+    console.log(genome)
+    new Genoverse({
+      container: '#genoverse', // Where to inject Genoverse (css/jQuery selector/DOM element)
+      // If no genome supplied, it must have at least chromosomeSize, e.g.:
+      // chromosomeSize : 249250621, // chromosome 1, human
+      genome: genome, // see js/genomes/
+      chr: 13,
+      start: 32296945,
+      end: 32370557,
+      plugins: [
+        'controlPanel',
+        'karyotype',
+        'trackControls',
+        'resizer',
+        'focusRegion',
+        'fullscreen',
+        'tooltips',
+        'fileDrop'
+      ],
+      tracks: [
+        Genoverse.Track.Scalebar,
+        Genoverse.Track.extend({
+          name: 'Sequence',
+          controller: Genoverse.Track.Controller.Sequence,
+          model: Genoverse.Track.Model.Sequence.Ensembl,
+          view: Genoverse.Track.View.Sequence,
+          100000: false,
+          resizable: 'auto'
+        }),
+        Genoverse.Track.Gene,
+        Genoverse.Track.extend({
+          name: 'Regulatory Features',
+          url: findGetParameter('trackurl') || defaultTrackUrl,
+          resizable: 'auto',
+          model: Genoverse.Track.Model.extend({ dataRequestLimit: 5000000 }),
+          setFeatureColor: function(f) {
+            f.color = '#AAA'
+          }
+        }),
+        Genoverse.Track.dbSNP
+      ]
+    })
+
+    setTimeout(function() {
+      document.getElementsByClassName('gv-fullscreen-button')[0].click()
+      document.getElementsByClassName('gv-fullscreen-button')[0].click()
+    }, 4000)
+  }
+}
