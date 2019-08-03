@@ -1,7 +1,3 @@
-const defaultGenome = 'grch37'
-const defaultTrackUrl =
-  'http://rest.ensembl.org/overlap/region/human/__CHR__:__START__-__END__?feature=regulatory;content-type=application/json'
-
 function findGetParameter(parameterName) {
   var result = null,
     tmp = []
@@ -13,6 +9,7 @@ function findGetParameter(parameterName) {
   return result
 }
 
+
 const speciesId = findGetParameter('speciesId')
 const assemblyId = findGetParameter('assemblyId')
 
@@ -23,13 +20,9 @@ Http.send()
 
 Http.onreadystatechange = function() {
   if (this.readyState == 4 && this.status == 200) {
-    // console.log(Http.response)
     let genome = JSON.parse(this.responseText)
-    console.log(genome)
-    new Genoverse({
+    browser = new Genoverse({
       container: '#genoverse', // Where to inject Genoverse (css/jQuery selector/DOM element)
-      // If no genome supplied, it must have at least chromosomeSize, e.g.:
-      // chromosomeSize : 249250621, // chromosome 1, human
       genome: genome, // see js/genomes/
       chr: 13,
       start: 32296945,
@@ -56,12 +49,13 @@ Http.onreadystatechange = function() {
         }),
         Genoverse.Track.Gene,
         Genoverse.Track.extend({
-          name: 'Regulatory Features',
-          url: findGetParameter('trackurl') || defaultTrackUrl,
+          name: 'CircRNA Tracks',
+          url: `/api/circrna_track/${speciesId}/${assemblyId}/__CHR__:__START__-__END__/`,
+          itemRgb: 'On',
           resizable: 'auto',
           model: Genoverse.Track.Model.extend({ dataRequestLimit: 5000000 }),
           setFeatureColor: function(f) {
-            f.color = '#AAA'
+            f.color = '#FF00FF'
           }
         }),
         Genoverse.Track.dbSNP
