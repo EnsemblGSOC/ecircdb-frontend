@@ -75,7 +75,7 @@ export default class Graph extends React.Component {
               sorted={column === 'abundanceRatio' ? direction : null}
               onClick={this.handleSort('abundanceRatio')}
             >
-              Abundance ratio
+              Abundance percentage
             </Table.HeaderCell>
           </Table.Row>
         </Table.Header>

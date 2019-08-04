@@ -10,33 +10,36 @@ import './css/graphs.css'
 // const PlotlyComponent = createPlotlyComponent(Plotly)
 
 export default class Graph extends React.Component {
-  render() {
+  render () {
     var layout = {
-      title: 'Average (TPM)',
+      title: 'Average circRNA expression (TPM)',
       font: {
-        family: "Lato,'Helvetica Neue',Arial,Helvetica,sans-serif"
+        family: "Lato,'Helvetica Neue',Arial,Helvetica,sans-serif",
+        size: '24px'
       },
       xaxis: {
         title: 'Tissues'
       },
       yaxis: {
-        title: 'log10(TPM)'
+        title: 'Log2 expression estimate'
       }
     }
 
     return (
-      <Card className="highlight-card">
+      <Card className='highlight-card'>
         <div>
           <Plot
             data={this.props.data}
             layout={layout}
-            responsive={true}
-            className="graph-wrapper"
+            responsive
+            className='graph-wrapper'
           />
         </div>
-        <div className="graph-legend">
-          <span className="graph-heading">Heading</span>
-          <span className="graph-description">(description)</span>
+        <div className='graph-legend'>
+          <span className='graph-heading'>
+            Average circRNA expression (TPM)
+          </span>
+          <span className='graph-description'>(description)</span>
         </div>
       </Card>
     )
