@@ -46,7 +46,7 @@ export default class Graph extends React.Component {
               onClick={this.handleSort('coordId')}
             >
               Backsplice junction coordinate
-           </Table.HeaderCell>
+            </Table.HeaderCell>
             <Table.HeaderCell
               sorted={column === 'stableId' ? direction : null}
               onClick={this.handleSort('stableId')}
@@ -77,13 +77,41 @@ export default class Graph extends React.Component {
             >
               Abundance percentage
             </Table.HeaderCell>
+            <Table.HeaderCell
+              sorted={column === 'gcPerc' ? direction : null}
+              onClick={this.handleSort('gcPerc')}
+            >
+              GC perc
+            </Table.HeaderCell>
+            <Table.HeaderCell
+              sorted={column === 'rawCount' ? direction : null}
+              onClick={this.handleSort('rawCount')}
+            >
+              Raw count
+            </Table.HeaderCell>
+            <Table.HeaderCell
+              sorted={column === 'nMethods' ? direction : null}
+              onClick={this.handleSort('nMethods')}
+            >
+              N methods
+            </Table.HeaderCell>
           </Table.Row>
         </Table.Header>
         <Table.Body>
           {map(
             data.slice(0, 10),
             (
-              { coordId, stableId, geneName, tpm, jpm, abundanceRatio },
+              {
+                coordId,
+                stableId,
+                geneName,
+                tpm,
+                jpm,
+                abundanceRatio,
+                gcPerc,
+                rawCount,
+                nMethods
+              },
               index
             ) => (
               <Table.Row key={index}>
@@ -92,7 +120,10 @@ export default class Graph extends React.Component {
                 <Table.Cell>{geneName}</Table.Cell>
                 <Table.Cell>{tpm}</Table.Cell>
                 <Table.Cell>{jpm}</Table.Cell>
-                <Table.Cell>{abundanceRatio}</Table.Cell>
+                <Table.Cell>{abundanceRatio} %</Table.Cell>
+                <Table.Cell>{gcPerc}</Table.Cell>
+                <Table.Cell>{rawCount}</Table.Cell>
+                <Table.Cell>{nMethods}</Table.Cell>
               </Table.Row>
             )
           )}
