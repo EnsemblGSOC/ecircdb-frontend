@@ -1,6 +1,6 @@
 import React from 'react'
 import { sortBy, map } from 'lodash'
-import { Card, Table, Tab } from 'semantic-ui-react'
+import { Table } from 'semantic-ui-react'
 
 import '../speciesView/css/graphs.css'
 
