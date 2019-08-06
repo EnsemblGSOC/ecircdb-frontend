@@ -12821,6 +12821,11 @@ sprintf-js@~1.0.2:
   resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
   integrity sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=
 
+squarify@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/squarify/-/squarify-1.1.0.tgz#3eb946f4575bb21f90c4e8f1b65991f2bd4ce4f4"
+  integrity sha512-0nD8UD4FPOfWHdaVYACbr1SmBF5XQeTbDcRfVs8NHVtueRC0OPo4DN/TJVjAJZ0fLwrgDhEI3XrhUicglD9npw==
+
 sshpk@^1.7.0:
   version "1.16.1"
   resolved "https://registry.yarnpkg.com/sshpk/-/sshpk-1.16.1.tgz#fb661c0bef29b39db40769ee39fa70093d6f6877"
