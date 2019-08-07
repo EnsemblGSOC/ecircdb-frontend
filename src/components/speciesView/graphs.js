@@ -69,7 +69,7 @@ export default class Graphs extends React.Component {
             values={data.circrnaNMethods.values}
             labels={data.circrnaNMethods.labels}
           />
-          <CircRNANExons values={data.circrnaNExons} />
+          <CircRNANExons x={data.circrnaNExons.x} y={data.circrnaNExons.y} />
           <AverageTPM
             data={data.tpmTissueBoxplot.tissueList.map(tissue => {
               return {

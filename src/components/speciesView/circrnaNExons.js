@@ -8,29 +8,31 @@ export default class Graph extends React.Component {
   render() {
     var data = [
       {
-        x: this.props.values,
-        name: 'circRNA NExons',
+        histfunc: 'sum',
+        y: this.props.y,
+        x: this.props.x,
         type: 'histogram',
-        autobinx: true,
+        name: 'CircRNA exons',
+        xbins: {
+          size: 1
+        },
         marker: {
           width: 50,
           color: 'rgba(100, 200, 102, 0.7)',
           line: {
             color: 'rgba(100, 200, 102, 1)',
-            width: 50
+            width: 1
           }
-        }
+        },
+        opacity: 0.75
       }
     ]
-
     var layout = {
-      font: {
-        family: "Lato,'Helvetica Neue',Arial,Helvetica,sans-serif",
-        size: 14
-      },
-      title: 'circRNA NExons',
-      xaxis: { title: 'NExons' },
-      yaxis: { title: 'Count' }
+      bargap: 0.05,
+      bargroupgap: 0.2,
+      title: 'CircRNA exons',
+      xaxis: { title: '# of predicted exons', tickangle: '-45' },
+      yaxis: { title: 'CircRNAs' }
     }
 
     return (
@@ -44,7 +46,7 @@ export default class Graph extends React.Component {
           />
         </div>
         <div className="graph-legend">
-          <span className="graph-heading">circRNA NExons</span>
+          <span className="graph-heading">CircRNA exons</span>
           <span className="graph-description">(description)</span>
         </div>
       </Card>
