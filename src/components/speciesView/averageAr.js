@@ -16,7 +16,7 @@ export default class Graph extends React.Component {
         title: 'Tissues'
       },
       yaxis: {
-        title: 'z-scores(Log2 expression estimate)'
+        title: 'Log2 abundance ratio'
       }
     }
 
