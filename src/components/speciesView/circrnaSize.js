@@ -23,7 +23,7 @@ export default class Graph extends React.Component {
         showgrid: true
       },
       yaxis: {
-        title: 'Log2 size'
+        title: 'Log2 circRNA size'
       }
     }
 
