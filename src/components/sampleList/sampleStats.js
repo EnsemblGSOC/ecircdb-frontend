@@ -2,8 +2,7 @@ import React from 'react'
 import { Button, Icon, Header, Card } from 'semantic-ui-react'
 
 import SankeyFlow from './sankeyFlow'
-import GeneTpm from './geneTpm'
-import CircRnaTpm from './circRnaTpm'
+import JpmBoxplot from './jpmBoxplot'
 import CircRnaAr from './circRnaAr'
 import BackspliceVsCanonical from './backspliceVsCanonical'
 import TopXCircRnas from './topXCircRnas'
@@ -13,6 +12,11 @@ import ExportList from './exportList'
 export default class SampleStats extends React.Component {
   render() {
     const { data, sample, speciesId, assemblyId, sampleId } = this.props
+    var trace = {
+      type: 'box',
+      boxmean: 'sd',
+      boxpoints: 'Outliers'
+    }
     return (
       <div>
         <div className="sample-stats-header">
@@ -49,8 +53,20 @@ export default class SampleStats extends React.Component {
         </Card.Group>
         <Header as="h4">Distributions</Header>
         <Card.Group itemsPerRow={2} stackable>
-          {/* <GeneTpm data={data} /> */}
-          {/* <CircRnaTpm data={data} /> */}
+          <JpmBoxplot
+            data={[
+              {
+                ...trace,
+                y: data.jpmBoxplot.bjJpmList,
+                name: 'backsplice'
+              },
+              {
+                ...trace,
+                y: data.jpmBoxplot.cjJpmList,
+                name: 'canonical'
+              }
+            ]}
+          />
           <BackspliceVsCanonical
             x={data.geneLevelBjVsCj.countCj}
             y={data.geneLevelBjVsCj.countBj}
