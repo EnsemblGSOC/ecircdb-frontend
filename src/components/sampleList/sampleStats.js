@@ -5,6 +5,7 @@ import SankeyFlow from './sankeyFlow'
 import JpmBoxplot from './jpmBoxplot'
 import CircRnaAr from './circRnaAr'
 import BackspliceVsCanonical from './backspliceVsCanonical'
+import BackspliceVsCanonicalJpm from './backspliceVsCanonicalJpm'
 import TopXCircRnas from './topXCircRnas'
 import TopXGenes from './topXGenes'
 import ExportList from './exportList'
@@ -67,20 +68,25 @@ export default class SampleStats extends React.Component {
               }
             ]}
           />
-          <BackspliceVsCanonical
+          <BackspliceVsCanonicalJpm
+            x={data.geneLevelBjCjJpm.jpmCj}
+            y={data.geneLevelBjCjJpm.jpmBj}
+            text={data.geneLevelBjCjJpm.text}
+          />
+          {/* <BackspliceVsCanonical
             x={data.geneLevelBjVsCj.countCj}
             y={data.geneLevelBjVsCj.countBj}
             text={data.geneLevelBjVsCj.text}
             size={data.geneLevelBjVsCj.nexons}
-          />
-          <CircRnaAr
+          /> */}
+          {/* <CircRnaAr
             x={data.geneVsCircrnaAbundanceRatio.genes}
             y={data.geneVsCircrnaAbundanceRatio.circrnaAbundanceRatio}
-          />
+          /> */}
         </Card.Group>
         <Header as="h4">Top X lists:</Header>
         <TopXCircRnas data={data.topXStructureData} />
-        {/* <TopXGenes topXCircrnas={data.topXCircrna} /> */}
+        <TopXGenes data={data.topXGeneLevelAbundance} />
       </div>
     )
   }

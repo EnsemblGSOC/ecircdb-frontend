@@ -3,37 +3,42 @@ import { Card } from 'semantic-ui-react'
 import Plot from 'react-plotly.js'
 
 import '../speciesView/css/graphs.css'
-import './css/sample-graphs.css'
 
 export default class Graph extends React.Component {
   render() {
+    var trace1 = {
+      x: this.props.x,
+      y: this.props.y,
+      text: this.props.text,
+      mode: 'markers',
+      type: 'scattergl',
+      name: 'Gene splice junction expression'
+    }
+
+    var data = [trace1]
+
     var layout = {
-      title: 'Splice junction expression',
-      font: {
-        family: "Lato,'Helvetica Neue',Arial,Helvetica,sans-serif",
-        size: 14
-      },
+      title: 'Gene splice junction expression',
       xaxis: {
-        title: 'Junction'
+        title: 'log2 (total canonical junction JPM)'
       },
       yaxis: {
-        title: ' Log2 expression estimate (JPM)'
-      },
-      showlegend: false
+        title: 'log2 (total backsplice junction JPM)'
+      }
     }
 
     return (
       <Card className="highlight-card">
         <div>
           <Plot
-            data={this.props.data}
+            data={data}
             layout={layout}
-            responsive
+            responsive={true}
             className="graph-wrapper sample-graph-wrapper"
           />
         </div>
         <div className="graph-legend">
-          <span className="graph-heading">Splice junction expression</span>
+          <span className="graph-heading">Gene splice junction expression</span>
           <span className="graph-description">(description)</span>
         </div>
       </Card>

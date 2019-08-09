@@ -1,55 +1,86 @@
 import React from 'react'
-import { Card } from 'semantic-ui-react'
-import Plot from 'react-plotly.js'
+import { sortBy, map } from 'lodash'
+import { Table } from 'semantic-ui-react'
 
 import '../speciesView/css/graphs.css'
 
 export default class Graph extends React.Component {
+  state = {
+    data: sortBy(this.props.data, 'tpm').reverse(),
+    direction: 'descending',
+    column: 'tpm'
+  }
+
+  handleSort = clickedColumn => () => {
+    const { column, data, direction } = this.state
+
+    if (column !== clickedColumn) {
+      this.setState({
+        column: clickedColumn,
+        data: sortBy(data, [clickedColumn]).reverse(),
+        direction: 'descending'
+      })
+
+      return
+    }
+
+    this.setState({
+      data: data.reverse(),
+      direction: direction === 'ascending' ? 'descending' : 'ascending'
+    })
+  }
+
   render() {
-    var x = []
-    var y = []
-
-    for (var i = 0; i < 10; i++) {
-      x[i] = Math.random() * 10
-      y[i] = `circRNA-${10 - i}`
-    }
-
-    x.sort()
-
-    var trace = {
-      x: x,
-      y: y,
-      type: 'bar',
-      orientation: 'h'
-    }
-
-    var data = [trace]
-
-    var layout = {
-      title: 'Top X circRNA based on abundance',
-      xaxis: {
-        title: 'Abundance'
-      },
-      yaxis: {
-        title: 'circRNA'
-      }
-    }
-
+    const { column, data, direction } = this.state
     return (
-      <Card className="highlight-card">
-        <div>
-          <Plot
-            data={data}
-            layout={layout}
-            responsive={true}
-            className="graph-wrapper"
-          />
-        </div>
-        <div className="graph-legend">
-          <span className="graph-heading">Heading</span>
-          <span className="graph-description">(description)</span>
-        </div>
-      </Card>
+      <Table sortable celled striped>
+        <Table.Header>
+          <Table.Row>
+            <Table.HeaderCell colSpan="6">
+              Gene-level abundance
+            </Table.HeaderCell>
+          </Table.Row>
+          <Table.Row>
+            <Table.HeaderCell
+              sorted={column === 'geneName' ? direction : null}
+              onClick={this.handleSort('geneName')}
+            >
+              Gene name
+            </Table.HeaderCell>
+            <Table.HeaderCell
+              sorted={column === 'tpm' ? direction : null}
+              onClick={this.handleSort('tpm')}
+            >
+              Max TPM
+            </Table.HeaderCell>
+            <Table.HeaderCell
+              sorted={column === 'circrnaAbundanceRatio' ? direction : null}
+              onClick={this.handleSort('circrnaAbundanceRatio')}
+            >
+              circRNA abundance percentage
+            </Table.HeaderCell>
+            <Table.HeaderCell
+              sorted={column === 'coordId' ? direction : null}
+              onClick={this.handleSort('coordId')}
+            >
+              circRNA count
+            </Table.HeaderCell>
+          </Table.Row>
+        </Table.Header>
+        <Table.Body>
+          {map(
+            data.slice(0, 10),
+            ({ coordId, geneName, tpm, circrnaAbundanceRatio }, index) => (
+              <Table.Row key={index}>
+                <Table.Cell>{geneName}</Table.Cell>
+                <Table.Cell>{tpm}</Table.Cell>
+                <Table.Cell>{circrnaAbundanceRatio} %</Table.Cell>
+                <Table.Cell>{coordId}</Table.Cell>
+              </Table.Row>
+            )
+          )}
+        </Table.Body>
+      </Table>
     )
   }
 }
