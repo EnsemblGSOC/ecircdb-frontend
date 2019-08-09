@@ -20,10 +20,10 @@ export default class Graph extends React.Component {
     var layout = {
       title: 'Gene splice junction expression',
       xaxis: {
-        title: 'log2 (total canonical junction JPM)'
+        title: 'Log2 total canonical junction JPM'
       },
       yaxis: {
-        title: 'log2 (total backsplice junction JPM)'
+        title: 'Log2 total backsplice junction JPM'
       }
     }
 
