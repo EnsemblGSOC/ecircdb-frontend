@@ -48,16 +48,29 @@ export default class Graph extends React.Component {
               Gene name
             </Table.HeaderCell>
             <Table.HeaderCell
+              sorted={column === 'stableId' ? direction : null}
+              onClick={this.handleSort('stableId')}
+            >
+              Stable Id
+            </Table.HeaderCell>
+            <Table.HeaderCell
+              sorted={column === 'biotype' ? direction : null}
+              onClick={this.handleSort('biotype')}
+            >
+              Biotype
+            </Table.HeaderCell>
+            <Table.HeaderCell>Description</Table.HeaderCell>
+            <Table.HeaderCell
               sorted={column === 'tpm' ? direction : null}
               onClick={this.handleSort('tpm')}
             >
               Max TPM
             </Table.HeaderCell>
             <Table.HeaderCell
-              sorted={column === 'circrnaAbundanceRatio' ? direction : null}
-              onClick={this.handleSort('circrnaAbundanceRatio')}
+              sorted={column === 'abundanceRatio' ? direction : null}
+              onClick={this.handleSort('abundanceRatio')}
             >
-              circRNA abundance percentage
+              circRNA abundance (%)
             </Table.HeaderCell>
             <Table.HeaderCell
               sorted={column === 'coordId' ? direction : null}
@@ -70,11 +83,25 @@ export default class Graph extends React.Component {
         <Table.Body>
           {map(
             data.slice(0, 10),
-            ({ coordId, geneName, tpm, circrnaAbundanceRatio }, index) => (
+            (
+              {
+                coordId,
+                geneName,
+                stableId,
+                biotype,
+                description,
+                tpm,
+                abundanceRatio
+              },
+              index
+            ) => (
               <Table.Row key={index}>
                 <Table.Cell>{geneName}</Table.Cell>
+                <Table.Cell>{stableId}</Table.Cell>
+                <Table.Cell>{biotype}</Table.Cell>
+                <Table.Cell>{description}</Table.Cell>
                 <Table.Cell>{tpm}</Table.Cell>
-                <Table.Cell>{circrnaAbundanceRatio} %</Table.Cell>
+                <Table.Cell>{abundanceRatio}</Table.Cell>
                 <Table.Cell>{coordId}</Table.Cell>
               </Table.Row>
             )

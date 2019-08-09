@@ -75,7 +75,7 @@ export default class Graph extends React.Component {
               sorted={column === 'abundanceRatio' ? direction : null}
               onClick={this.handleSort('abundanceRatio')}
             >
-              Abundance percentage
+              Abundance (%)
             </Table.HeaderCell>
             <Table.HeaderCell
               sorted={column === 'gcPerc' ? direction : null}
@@ -120,7 +120,7 @@ export default class Graph extends React.Component {
                 <Table.Cell>{geneName}</Table.Cell>
                 <Table.Cell>{tpm}</Table.Cell>
                 <Table.Cell>{jpm}</Table.Cell>
-                <Table.Cell>{abundanceRatio} %</Table.Cell>
+                <Table.Cell>{abundanceRatio}</Table.Cell>
                 <Table.Cell>{gcPerc}</Table.Cell>
                 <Table.Cell>{rawCount}</Table.Cell>
                 <Table.Cell>{nMethods}</Table.Cell>
