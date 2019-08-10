@@ -3,8 +3,7 @@ import { Button, Icon, Header, Card } from 'semantic-ui-react'
 
 import SankeyFlow from './sankeyFlow'
 import JpmBoxplot from './jpmBoxplot'
-import CircRnaAr from './circRnaAr'
-import BackspliceVsCanonical from './backspliceVsCanonical'
+import TpmBoxplot from './tpmBoxplot'
 import BackspliceVsCanonicalJpm from './backspliceVsCanonicalJpm'
 import TopXCircRnas from './topXCircRnas'
 import TopXGenes from './topXGenes'
@@ -68,21 +67,25 @@ export default class SampleStats extends React.Component {
               }
             ]}
           />
+          <TpmBoxplot
+            data={[
+              {
+                ...trace,
+                y: data.locusBjTpmData.circRNAHost,
+                name: 'circRNA genes'
+              },
+              {
+                ...trace,
+                y: data.locusBjTpmData.notCircRNAHost,
+                name: 'non-circRNA gene'
+              }
+            ]}
+          />
           <BackspliceVsCanonicalJpm
             x={data.geneLevelBjCjJpm.jpmCj}
             y={data.geneLevelBjCjJpm.jpmBj}
             text={data.geneLevelBjCjJpm.text}
           />
-          {/* <BackspliceVsCanonical
-            x={data.geneLevelBjVsCj.countCj}
-            y={data.geneLevelBjVsCj.countBj}
-            text={data.geneLevelBjVsCj.text}
-            size={data.geneLevelBjVsCj.nexons}
-          /> */}
-          {/* <CircRnaAr
-            x={data.geneVsCircrnaAbundanceRatio.genes}
-            y={data.geneVsCircrnaAbundanceRatio.circrnaAbundanceRatio}
-          /> */}
         </Card.Group>
         <Header as="h4">Top X lists:</Header>
         <TopXCircRnas data={data.topXStructureData} />

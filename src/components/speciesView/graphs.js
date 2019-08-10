@@ -1,12 +1,9 @@
 import React from 'react'
 import { Card, Icon } from 'semantic-ui-react'
 
-import CircRNAPerLocus from './circRNAPerLocus'
+import GeneCountVsCircrnaCount from './geneCountVsCircrnaCount'
 import CircrnaPerChromosome from './circRNAPerChromosome'
-import CircRNAVSLTPerLocus from './ncrnaVsNltPerLocus'
 import CircRNANExons from './circrnaNExons'
-import NumberOfExons from './numberOfExons'
-import SizeOfExons from './sizeOfExons'
 import CircrnaClassification from './circrnaClassification'
 import CircrnaNMethods from './circrnaNMethods'
 import AverageTPM from './averageTpm'
@@ -47,19 +44,14 @@ export default class Graphs extends React.Component {
           doubling
           className="highlights-container"
         >
-          <CircRNAPerLocus
-            x={data.circRNAPerLocus.locusId}
-            y={data.circRNAPerLocus.count}
+          <GeneCountVsCircrnaCount
+            x={data.geneCountPerCircrnaCount.circrnaCount}
+            y={data.geneCountPerCircrnaCount.genesFrequency}
+            labels={data.geneCountPerCircrnaCount.labels}
           />
           <CircrnaPerChromosome
             x={data.chromosomesCircrnaCount.chromosomes}
             y={data.chromosomesCircrnaCount.circrnas}
-          />
-          <CircRNAVSLTPerLocus
-            x={data.circrnaVsLtPerLocus.countCj}
-            y={data.circrnaVsLtPerLocus.countBj}
-            text={data.circrnaVsLtPerLocus.text}
-            size={data.circrnaVsLtPerLocus.nexons}
           />
           <CircrnaClassification
             values={data.circrnaClassification.values}
@@ -69,7 +61,11 @@ export default class Graphs extends React.Component {
             values={data.circrnaNMethods.values}
             labels={data.circrnaNMethods.labels}
           />
-          <CircRNANExons x={data.circrnaNExons.x} y={data.circrnaNExons.y} />
+          <CircRNANExons
+            x={data.circrnaNExons.x}
+            y={data.circrnaNExons.y}
+            labels={data.circrnaNExons.labels}
+          />
           <AverageTPM
             data={data.tpmTissueBoxplot.tissueList.map(tissue => {
               return {
@@ -117,12 +113,6 @@ export default class Graphs extends React.Component {
               }
             ]}
           />
-          {/* <NumberOfExons />
-          <SizeOfExons />
-          <AverageTPM />
-          <NumberOfExons />
-          <SizeOfExons />
-          <AverageTPM /> */}
         </Card.Group>
       </div>
     )
