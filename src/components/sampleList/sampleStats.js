@@ -2,6 +2,7 @@ import React from 'react'
 import { Button, Icon, Header, Card } from 'semantic-ui-react'
 
 import SankeyFlow from './sankeyFlow'
+import GeneLevelAR from './geneLevelAr'
 import JpmBoxplot from './jpmBoxplot'
 import TpmBoxplot from './tpmBoxplot'
 import BackspliceVsCanonicalJpm from './backspliceVsCanonicalJpm'
@@ -53,6 +54,7 @@ export default class SampleStats extends React.Component {
         </Card.Group>
         <Header as="h4">Distributions</Header>
         <Card.Group itemsPerRow={2} stackable>
+          <GeneLevelAR arList={data.geneLevelArSum} />
           <JpmBoxplot
             data={[
               {

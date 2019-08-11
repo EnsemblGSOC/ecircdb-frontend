@@ -6,25 +6,24 @@ import '../speciesView/css/graphs.css'
 
 export default class Graph extends React.Component {
   render() {
-    var trace1 = {
-      x: this.props.x,
-      y: this.props.y,
-      text: this.props.text,
-      mode: 'markers',
-      type: 'scattergl',
-      name: 'Number of exons'
-    }
-
-    var data = [trace1]
-
-    var layout = {
-      title: 'Gene level backsplice vs canonical junctions',
-      xaxis: {
-        title: 'Backsplice junctions'
-      },
-      yaxis: {
-        title: 'Canonical junctions'
+    var data = [
+      {
+        x: this.props.arList,
+        type: 'histogram',
+        name: 'circRNA abundance',
+        histnorm: 'probability density',
+        marker: {
+          width: 2
+        },
+        opacity: 0.75
       }
+    ]
+    var layout = {
+      title: 'circRNA abundance',
+      xaxis: {
+        title: 'Log2 circRNA abundance ratio'
+      },
+      yaxis: { title: 'Density' }
     }
 
     return (
@@ -33,12 +32,12 @@ export default class Graph extends React.Component {
           <Plot
             data={data}
             layout={layout}
-            responsive={true}
-            className="graph-wrapper"
+            responsive
+            className="graph-wrapper sample-graph-wrapper"
           />
         </div>
         <div className="graph-legend">
-          <span className="graph-heading">Heading</span>
+          <span className="graph-heading">circRNA abundance</span>
           <span className="graph-description">(description)</span>
         </div>
       </Card>
