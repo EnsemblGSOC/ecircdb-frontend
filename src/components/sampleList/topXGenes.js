@@ -100,8 +100,8 @@ export default class Graph extends React.Component {
                 <Table.Cell>{stableId}</Table.Cell>
                 <Table.Cell>{biotype}</Table.Cell>
                 <Table.Cell>{description}</Table.Cell>
-                <Table.Cell>{tpm}</Table.Cell>
-                <Table.Cell>{abundanceRatio}</Table.Cell>
+                <Table.Cell>{tpm.toFixed(3)}</Table.Cell>
+                <Table.Cell>{abundanceRatio.toFixed(3)}</Table.Cell>
                 <Table.Cell>{coordId}</Table.Cell>
               </Table.Row>
             )

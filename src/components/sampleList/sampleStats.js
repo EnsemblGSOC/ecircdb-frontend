@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button, Icon, Header, Card } from 'semantic-ui-react'
 
+import config from '../../config.json'
 import SankeyFlow from './sankeyFlow'
 import GeneLevelAR from './geneLevelAr'
 import JpmBoxplot from './jpmBoxplot'
@@ -37,10 +38,16 @@ export default class SampleStats extends React.Component {
             </div>
           </div>
           <div className="sample-details-buttons">
-            <Button className="sample-details-button">
-              <Icon name="file download" />
-              Quality Report
-            </Button>
+            <a
+              download
+              href={`${config.backendServer}${data.fastqcPath}`}
+              target="_blank"
+            >
+              <Button className="sample-details-button">
+                <Icon name="file download" />
+                Quality Report
+              </Button>
+            </a>
             <ExportList
               speciesId={speciesId}
               assemblyId={assemblyId}

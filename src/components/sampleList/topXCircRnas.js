@@ -118,10 +118,10 @@ export default class Graph extends React.Component {
                 <Table.Cell>{coordId}</Table.Cell>
                 <Table.Cell>{stableId}</Table.Cell>
                 <Table.Cell>{geneName}</Table.Cell>
-                <Table.Cell>{tpm}</Table.Cell>
-                <Table.Cell>{jpm}</Table.Cell>
-                <Table.Cell>{abundanceRatio}</Table.Cell>
-                <Table.Cell>{gcPerc}</Table.Cell>
+                <Table.Cell>{tpm.toFixed(3)}</Table.Cell>
+                <Table.Cell>{jpm.toFixed(3)}</Table.Cell>
+                <Table.Cell>{abundanceRatio.toFixed(3)}</Table.Cell>
+                <Table.Cell>{gcPerc.toFixed(3)}</Table.Cell>
                 <Table.Cell>{rawCount}</Table.Cell>
                 <Table.Cell>{nMethods}</Table.Cell>
               </Table.Row>
