@@ -18,7 +18,6 @@ class LocationView extends React.Component {
       this.props.speciesId,
       this.props.assemblyId,
       data => {
-        console.log(data)
         this.setState({
           chromosome: findGetParameter('chromosome'),
           searchQuery: findGetParameter('chromosome'),
@@ -48,9 +47,18 @@ class LocationView extends React.Component {
   }
 
   handleGeneChange = (e, { value }) => {
-    this.setState({
-      gene: value
-    })
+    if (value) {
+      this.setState({
+        gene: value,
+        chromosome: value.split(':')[0],
+        start: value.split(':')[1].split('-')[0],
+        end: value.split(':')[1].split('-')[1]
+      })
+    } else {
+      this.setState({
+        gene: ''
+      })
+    }
   }
 
   handleInputChange = (e, { name, value }) => {
@@ -78,12 +86,7 @@ class LocationView extends React.Component {
   render() {
     const { locationStats, speciesId, assemblyId } = this.props
     const { data, isLoading } = locationStats
-    const { chromosomes } = data
-    const options = [
-      { key: 1, text: 'Choice 1', value: 1 },
-      { key: 2, text: 'Choice 2', value: 2 },
-      { key: 3, text: 'Choice 3', value: 3 }
-    ]
+    const { chromosomes, genes } = data
     return isLoading ? (
       <Loader />
     ) : (
@@ -92,7 +95,19 @@ class LocationView extends React.Component {
         <Dropdown
           clearable
           selection
-          options={options}
+          options={
+            genes
+              ? genes.map((gene, index) => {
+                  return {
+                    key: index,
+                    text: gene.geneName,
+                    value: `${gene.seqRegionName}:${gene.seqRegionStart}-${
+                      gene.seqRegionEnd
+                    }`
+                  }
+                })
+              : []
+          }
           placeholder="Select a circRNA producing gene"
           value={this.state.gene}
           onChange={this.handleGeneChange}

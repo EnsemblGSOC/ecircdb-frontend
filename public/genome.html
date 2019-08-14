@@ -6,13 +6,274 @@
     <title>ecircdb genoverse</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+
+    <!-- CSS FROM GENOVERSE -->
+    <link rel="stylesheet" type="text/css" href="Genoverse/css/genoverse.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="Genoverse/css/controlPanel.css"
+    />
+    <link rel="stylesheet" type="text/css" href="Genoverse/css/fileDrop.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="Genoverse/css/font-awesome.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="Genoverse/css/fullscreen.css"
+    />
+    <link rel="stylesheet" type="text/css" href="Genoverse/css/karyotype.css" />
+    <link rel="stylesheet" type="text/css" href="Genoverse/css/resizer.css" />
+    <link rel="stylesheet" type="text/css" href="Genoverse/css/tooltips.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="Genoverse/css/trackControls.css"
+    />
   </head>
   <body>
-    <div id="genoverse"></div>
+    <div id="genoverse">
+      <!-- Empty container to be filled with browser -->
+    </div>
+
+    <script src="./readGetParams.js"></script>
+
+    <!-- JS FROM GENEOVERSE -->
+    <script type="text/javascript" src="Genoverse/js/lib/jquery.js"></script>
+    <script type="text/javascript" src="Genoverse/js/lib/jquery-ui.js"></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/lib/jquery.mousewheel.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/lib/jquery.mousehold.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/lib/jquery.tipsy.js"
+    ></script>
+    <script type="text/javascript" src="Genoverse/js/lib/Base.js"></script>
+    <script type="text/javascript" src="Genoverse/js/lib/rtree.js"></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/lib/dalliance-lib.min.js"
+    ></script>
+    <script type="text/javascript" src="Genoverse/js/lib/jDataView.js"></script>
+    <script type="text/javascript" src="Genoverse/js/lib/jParser.js"></script>
+    <script type="text/javascript" src="Genoverse/js/lib/BWReader.js"></script>
+    <script type="text/javascript" src="Genoverse/js/lib/VCFReader.js"></script>
+    <script type="text/javascript" src="Genoverse/js/Genoverse.js"></script>
+    <script type="text/javascript" src="Genoverse/js/Track.js"></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/Track/Controller.js"
+    ></script>
+    <script type="text/javascript" src="Genoverse/js/Track/Model.js"></script>
+    <script type="text/javascript" src="Genoverse/js/Track/View.js"></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/Track/library/Static.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/Track/Controller/Stranded.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/Track/Model/Stranded.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/Track/library/Graph.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/Track/library/Graph/Line.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/Track/library/Graph/Bar.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/Track/Controller/Sequence.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/Track/Model/Sequence.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/Track/Model/Sequence/Fasta.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/Track/Model/Sequence/Ensembl.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/Track/View/Sequence.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/Track/View/Sequence/Variation.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/Track/Model/SequenceVariation.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/Track/Model/Gene.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/Track/Model/Gene/Ensembl.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/Track/View/Gene.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/Track/View/Gene/Ensembl.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/Track/Model/Transcript.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/Track/Model/Transcript/Ensembl.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/Track/View/Transcript.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/Track/View/Transcript/Ensembl.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/Track/Model/File.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/Track/Model/File/BAM.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/Track/Model/File/BED.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/Track/Model/File/GFF.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/Track/Model/File/VCF.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/Track/Model/File/WIG.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/Track/library/Chromosome.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/Track/library/dbSNP.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/Track/library/File.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/Track/library/File/BAM.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/Track/library/File/BED.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/Track/library/File/BIGBED.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/Track/library/File/BIGWIG.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/Track/library/File/GFF.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/Track/library/File/VCF.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/Track/library/File/WIG.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/Track/library/Gene.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/Track/library/HighlightRegion.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/Track/library/Legend.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/Track/library/Scaleline.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/Track/library/Scalebar.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/plugins/controlPanel.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/plugins/fileDrop.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/plugins/focusRegion.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/plugins/fullscreen.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/plugins/karyotype.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/plugins/resizer.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/plugins/tooltips.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="Genoverse/js/plugins/trackControls.js"
+    ></script>
+    <script src="main.js"></script>
   </body>
-  <script
-    type="text/javascript"
-    src="https://wtsi-web.github.io/Genoverse/js/genoverse.min.js"
-  ></script>
-  <script src="main.js"></script>
 </html>

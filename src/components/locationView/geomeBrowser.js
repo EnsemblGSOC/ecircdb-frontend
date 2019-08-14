@@ -8,7 +8,7 @@ export default class GenomeBrowser extends React.Component {
   constructor() {
     super()
     this.state = {
-      iFrameHeight: '600px'
+      iFrameHeight: '650px'
     }
   }
 
@@ -21,6 +21,8 @@ export default class GenomeBrowser extends React.Component {
         }}
         url={`/genome.html?assemblyId=${this.props.assemblyId}&speciesId=${
           this.props.speciesId
+        }&scientificName=${this.props.scientificName}&commonName=${
+          this.props.commonName
         }${
           this.props.chromosome && this.props.start && this.props.end
             ? `&r=${this.props.chromosome}:${this.props.start}-${
