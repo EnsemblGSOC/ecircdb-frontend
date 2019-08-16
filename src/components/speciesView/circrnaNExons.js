@@ -12,7 +12,7 @@ export default class Graph extends React.Component {
         y: this.props.y,
         x: this.props.x,
         type: 'histogram',
-        name: 'CircRNA exons',
+        name: 'circRNA exons',
         xbins: {
           size: 1
         },
@@ -30,14 +30,14 @@ export default class Graph extends React.Component {
     var layout = {
       bargap: 0.05,
       bargroupgap: 0.2,
-      title: 'CircRNA exons',
+      title: 'circRNA exons',
       xaxis: {
         title: '# of predicted exons',
         tickangle: '-90',
         tickvals: this.props.x,
         ticktext: this.props.labels
       },
-      yaxis: { title: 'CircRNAs' }
+      yaxis: { title: 'circRNAs' }
     }
 
     return (
@@ -51,8 +51,10 @@ export default class Graph extends React.Component {
           />
         </div>
         <div className="graph-legend">
-          <span className="graph-heading">CircRNA exons</span>
-          <span className="graph-description">(description)</span>
+          <span className="graph-heading">circRNA exons</span>
+          <span className="graph-description">
+            Distribution of # of predicted exons per circRNA
+          </span>
         </div>
       </Card>
     )

@@ -45,7 +45,7 @@ export default class Graph extends React.Component {
               sorted={column === 'coordId' ? direction : null}
               onClick={this.handleSort('coordId')}
             >
-              Backsplice junction coordinate
+              Coordinate
             </Table.HeaderCell>
             <Table.HeaderCell
               sorted={column === 'stableId' ? direction : null}
@@ -93,7 +93,7 @@ export default class Graph extends React.Component {
               sorted={column === 'nMethods' ? direction : null}
               onClick={this.handleSort('nMethods')}
             >
-              N methods
+              # of methods
             </Table.HeaderCell>
           </Table.Row>
         </Table.Header>

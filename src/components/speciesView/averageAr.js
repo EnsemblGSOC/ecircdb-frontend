@@ -32,7 +32,9 @@ export default class Graph extends React.Component {
         </div>
         <div className="graph-legend">
           <span className="graph-heading">Average circRNA expression (AR)</span>
-          <span className="graph-description">(description)</span>
+          <span className="graph-description">
+            Mean circRNA abundance ratios (circular-to-linear ratios) per tissue
+          </span>
         </div>
       </Card>
     )

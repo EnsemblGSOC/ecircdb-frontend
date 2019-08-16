@@ -35,7 +35,9 @@ export default class Graph extends React.Component {
         </div>
         <div className="graph-legend">
           <span className="graph-heading">circRNA classificaion</span>
-          <span className="graph-description">(description)</span>
+          <span className="graph-description">
+            Proportion of exonic and intronic circRNAs identified
+          </span>
         </div>
       </Card>
     )

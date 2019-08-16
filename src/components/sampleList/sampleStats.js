@@ -42,6 +42,7 @@ export default class SampleStats extends React.Component {
               download
               href={`${config.backendServer}${data.fastqcPath}`}
               target="_blank"
+              rel="noopener noreferrer"
             >
               <Button className="sample-details-button">
                 <Icon name="file download" />
@@ -61,21 +62,6 @@ export default class SampleStats extends React.Component {
         </Card.Group>
         <Header as="h4">Distributions</Header>
         <Card.Group itemsPerRow={2} stackable>
-          <GeneLevelAR arList={data.geneLevelArSum} />
-          <JpmBoxplot
-            data={[
-              {
-                ...trace,
-                y: data.jpmBoxplot.bjJpmList,
-                name: 'backsplice'
-              },
-              {
-                ...trace,
-                y: data.jpmBoxplot.cjJpmList,
-                name: 'canonical'
-              }
-            ]}
-          />
           <TpmBoxplot
             data={[
               {
@@ -90,11 +76,26 @@ export default class SampleStats extends React.Component {
               }
             ]}
           />
+          <JpmBoxplot
+            data={[
+              {
+                ...trace,
+                y: data.jpmBoxplot.bjJpmList,
+                name: 'backsplice'
+              },
+              {
+                ...trace,
+                y: data.jpmBoxplot.cjJpmList,
+                name: 'canonical'
+              }
+            ]}
+          />
           <BackspliceVsCanonicalJpm
             x={data.geneLevelBjCjJpm.jpmCj}
             y={data.geneLevelBjCjJpm.jpmBj}
             text={data.geneLevelBjCjJpm.text}
           />
+          <GeneLevelAR arList={data.geneLevelArSum} />
         </Card.Group>
         <Header as="h4">Top X lists:</Header>
         <TopXCircRnas data={data.topXStructureData} />

@@ -22,8 +22,8 @@ export default class Highlights extends React.Component {
           className="highlights-container"
         >
           <HighlightCard
-            description="Distinct backspliced events identified from all samples of Homo sapiens"
-            number={data.countBackspliceJunctions}
+            description="# of circRNAs"
+            number={data.totalCircrnas}
           />
           <HighlightCard
             description="Samples"
@@ -34,15 +34,15 @@ export default class Highlights extends React.Component {
             number={data.countDistinctTissues}
           />
           <HighlightCard
-            description="Total number of circRNA count / sum(library_size)"
+            description="Total # of circRNA count / sum(library_size)"
             number={data.circrnaPerLibrarySize}
           />
           <HighlightCard
-            description="Average circRNAs(circRNAs count per sample)"
+            description="circRNAs per sample"
             number={data.circrnaPerSample}
           />
           <HighlightCard
-            description="Number of circRNA producing genes"
+            description="# of circRNA producing genes"
             number={data.countCircrnaProducingGenes}
           />
         </Card.Group>

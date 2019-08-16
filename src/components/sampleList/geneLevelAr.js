@@ -38,7 +38,9 @@ export default class Graph extends React.Component {
         </div>
         <div className="graph-legend">
           <span className="graph-heading">circRNA abundance</span>
-          <span className="graph-description">(description)</span>
+          <span className="graph-description">
+            Distribution of total circRNA abundance ratio per gene
+          </span>
         </div>
       </Card>
     )

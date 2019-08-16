@@ -39,7 +39,10 @@ export default class Graph extends React.Component {
         </div>
         <div className="graph-legend">
           <span className="graph-heading">Gene splice junction expression</span>
-          <span className="graph-description">(description)</span>
+          <span className="graph-description">
+            Comparisons of total canonical and backsplice junction expression in
+            circRNA producing genes
+          </span>
         </div>
       </Card>
     )

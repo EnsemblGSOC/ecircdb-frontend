@@ -34,7 +34,10 @@ export default class Graph extends React.Component {
           <span className="graph-heading">
             Average circRNA expression (JPM)
           </span>
-          <span className="graph-description">(description)</span>
+          <span className="graph-description">
+            Mean circRNA expression estimates in junctions per million (JPM) per
+            tissue
+          </span>
         </div>
       </Card>
     )

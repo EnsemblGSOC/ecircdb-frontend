@@ -31,7 +31,10 @@ export default class Graph extends React.Component {
         </div>
         <div className="graph-legend">
           <span className="graph-heading">Gene expression</span>
-          <span className="graph-description">(description)</span>
+          <span className="graph-description">
+            Distribution of gene expression estimates in transcript per million
+            (TPM) grouped by status: circRNA producing and non-producing genes
+          </span>
         </div>
       </Card>
     )

@@ -34,7 +34,10 @@ export default class Graph extends React.Component {
         </div>
         <div className="graph-legend">
           <span className="graph-heading">Splice junction expression</span>
-          <span className="graph-description">(description)</span>
+          <span className="graph-description">
+            Distribution of splice junction expression estimates in junctions
+            per million (JPM)
+          </span>
         </div>
       </Card>
     )

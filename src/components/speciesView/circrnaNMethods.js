@@ -121,7 +121,10 @@ export default class Graph extends React.Component {
         </div>
         <div className="graph-legend">
           <span className="graph-heading">circRNA n_methods</span>
-          <span className="graph-description">(description)</span>
+          <span className="graph-description">
+            Number of identified circRNAs grouped by number of published methods
+            confirming each backsplice event
+          </span>
         </div>
       </Card>
     )

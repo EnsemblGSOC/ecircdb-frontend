@@ -39,7 +39,10 @@ export default class Graph extends React.Component {
         </div>
         <div className="graph-legend">
           <span className="graph-heading">CircRNA sizes grouped by tissue</span>
-          <span className="graph-description">(description)</span>
+          <span className="graph-description">
+            Distributions of genomic span (unspliced sizes) and spliced sizes of
+            identified circRNAs per tissue
+          </span>
         </div>
       </Card>
     )

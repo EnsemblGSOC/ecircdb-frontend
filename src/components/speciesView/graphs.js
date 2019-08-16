@@ -44,27 +44,47 @@ export default class Graphs extends React.Component {
           doubling
           className="highlights-container"
         >
-          <GeneCountVsCircrnaCount
-            x={data.geneCountPerCircrnaCount.circrnaCount}
-            y={data.geneCountPerCircrnaCount.genesFrequency}
-            labels={data.geneCountPerCircrnaCount.labels}
-          />
           <CircrnaPerChromosome
             x={data.chromosomesCircrnaCount.chromosomes}
             y={data.chromosomesCircrnaCount.circrnas}
-          />
-          <CircrnaClassification
-            values={data.circrnaClassification.values}
-            labels={data.circrnaClassification.labels}
           />
           <CircrnaNMethods
             values={data.circrnaNMethods.values}
             labels={data.circrnaNMethods.labels}
           />
+          <CircrnaClassification
+            values={data.circrnaClassification.values}
+            labels={data.circrnaClassification.labels}
+          />
+          <GeneCountVsCircrnaCount
+            x={data.geneCountPerCircrnaCount.circrnaCount}
+            y={data.geneCountPerCircrnaCount.genesFrequency}
+            labels={data.geneCountPerCircrnaCount.labels}
+          />
           <CircRNANExons
             x={data.circrnaNExons.x}
             y={data.circrnaNExons.y}
             labels={data.circrnaNExons.labels}
+          />
+          <CircrnaSize
+            data={[
+              {
+                ...sizeTrace,
+                x: data.sizeTissueBoxplot.tissueList,
+                y: data.sizeTissueBoxplot.genomicSizes,
+                legendgroup: 'Genomic size',
+                scalegroup: 'Genomic size',
+                name: 'Genomic size'
+              },
+              {
+                ...sizeTrace,
+                x: data.sizeTissueBoxplot.tissueList,
+                y: data.sizeTissueBoxplot.splicedSizes,
+                legendgroup: 'Spliced size',
+                scalegroup: 'Spliced size',
+                name: 'Spliced size'
+              }
+            ]}
           />
           <AverageTPM
             data={data.tpmTissueBoxplot.tissueList.map(tissue => {
@@ -92,26 +112,6 @@ export default class Graphs extends React.Component {
                 name: tissue
               }
             })}
-          />
-          <CircrnaSize
-            data={[
-              {
-                ...sizeTrace,
-                x: data.sizeTissueBoxplot.tissueList,
-                y: data.sizeTissueBoxplot.genomicSizes,
-                legendgroup: 'Genomic size',
-                scalegroup: 'Genomic size',
-                name: 'Genomic size'
-              },
-              {
-                ...sizeTrace,
-                x: data.sizeTissueBoxplot.tissueList,
-                y: data.sizeTissueBoxplot.splicedSizes,
-                legendgroup: 'Spliced size',
-                scalegroup: 'Spliced size',
-                name: 'Spliced size'
-              }
-            ]}
           />
         </Card.Group>
       </div>

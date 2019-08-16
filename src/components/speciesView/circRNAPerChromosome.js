@@ -50,7 +50,9 @@ export default class Graph extends React.Component {
           <span className="graph-heading">
             Number of distinct circRNAs per chromosomes
           </span>
-          <span className="graph-description">(description)</span>
+          <span className="graph-description">
+            circRNAs identified from all samples grouped by chromosomes
+          </span>
         </div>
       </Card>
     )

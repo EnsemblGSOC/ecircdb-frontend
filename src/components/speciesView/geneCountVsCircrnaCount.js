@@ -12,7 +12,7 @@ export default class Graph extends React.Component {
         y: this.props.y,
         x: this.props.x,
         type: 'histogram',
-        name: 'Gene count vs circRNA count',
+        name: 'circRNA isoforms',
         xbins: {
           size: 1
         },
@@ -30,7 +30,7 @@ export default class Graph extends React.Component {
     var layout = {
       bargap: 0.05,
       bargroupgap: 0.2,
-      title: 'Gene count vs circRNA count',
+      title: 'circRNA isoforms',
       xaxis: {
         title: '# of circRNAs',
         tickangle: '-90',
@@ -51,8 +51,10 @@ export default class Graph extends React.Component {
           />
         </div>
         <div className="graph-legend">
-          <span className="graph-heading">Gene count vs circRNA count</span>
-          <span className="graph-description">(description)</span>
+          <span className="graph-heading">circRNA isoforms</span>
+          <span className="graph-description">
+            Distribution of # of circRNA isoforms per circRNA producing gene
+          </span>
         </div>
       </Card>
     )

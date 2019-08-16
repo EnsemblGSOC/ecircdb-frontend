@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Button, Dropdown, Icon, Input } from 'semantic-ui-react'
+import { Dropdown, Input } from 'semantic-ui-react'
 
 import Loader from '../loader'
 import GenomeBrowser from './geomeBrowser'
@@ -13,6 +13,7 @@ class LocationView extends React.Component {
   state = {
     searchQuery: ''
   }
+
   componentDidMount() {
     this.props.SetLocationStats(
       this.props.speciesId,
@@ -73,16 +74,6 @@ class LocationView extends React.Component {
   handleChromosomeSearchChange = (e, { searchQuery }) =>
     this.setState({ searchQuery, chromosome: searchQuery })
 
-  copyUrl = () => {
-    let range = document.createRange()
-    range.selectNodeContents(this.textarea)
-    let sel = window.getSelection()
-    sel.removeAllRanges()
-    sel.addRange(range)
-    document.execCommand('copy')
-    sel.removeAllRanges()
-  }
-
   render() {
     const { locationStats, speciesId, assemblyId } = this.props
     const { data, isLoading } = locationStats
@@ -113,7 +104,7 @@ class LocationView extends React.Component {
           onChange={this.handleGeneChange}
         />
         <strong className="location_view_heading_or">or</strong>
-        <strong className="location_view_heading">Location(manually): </strong>
+        <strong className="location_view_heading">Location: </strong>
         <Dropdown
           noResultsMessage={null}
           clearable
@@ -154,20 +145,6 @@ class LocationView extends React.Component {
           placeholder="end"
           onChange={this.handleInputChange}
         />
-        <div className="location_view_url">
-          <strong
-            className="location_view_heading_or"
-            ref={textarea => (this.textarea = textarea)}
-          >
-            http://{window.location.host}
-            {window.location.pathname}?chromosome={this.state.chromosome}&start=
-            {this.state.start}&end={this.state.end}
-          </strong>
-          <Button className="sample-details-button" onClick={this.copyUrl}>
-            <Icon name="copy" />
-            Copy
-          </Button>
-        </div>
         <div className="browser-iframe-container">
           <GenomeBrowser
             speciesId={speciesId}
