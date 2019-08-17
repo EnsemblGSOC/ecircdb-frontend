@@ -2,6 +2,7 @@ import React from 'react'
 import { Card, Icon } from 'semantic-ui-react'
 
 import HighlightCard from './highlightCard'
+import { numberWithCommas } from '../../utils'
 
 import './css/highlights.css'
 
@@ -23,27 +24,27 @@ export default class Highlights extends React.Component {
         >
           <HighlightCard
             description="# of circRNAs"
-            number={data.totalCircrnas}
+            number={numberWithCommas(data.totalCircrnas)}
           />
           <HighlightCard
             description="Samples"
-            number={data.countTotalSamples}
+            number={numberWithCommas(data.countTotalSamples)}
           />
           <HighlightCard
             description="Tissues"
-            number={data.countDistinctTissues}
+            number={numberWithCommas(data.countDistinctTissues)}
           />
           <HighlightCard
-            description="Total # of circRNA count / sum(library_size)"
-            number={data.circrnaPerLibrarySize}
+            description="Average library size"
+            number={numberWithCommas(data.averageLibrarySize)}
           />
           <HighlightCard
             description="circRNAs per sample"
-            number={data.circrnaPerSample}
+            number={numberWithCommas(data.circrnaPerSample)}
           />
           <HighlightCard
             description="# of circRNA producing genes"
-            number={data.countCircrnaProducingGenes}
+            number={numberWithCommas(data.countCircrnaProducingGenes)}
           />
         </Card.Group>
       </div>

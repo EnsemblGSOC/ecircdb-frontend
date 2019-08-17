@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import { numberWithCommas } from '../../utils'
+
 import './css/sample-table-row.css'
 
 export default class SampleTableRow extends React.Component {
@@ -22,7 +24,9 @@ export default class SampleTableRow extends React.Component {
       >
         <div className="sample-row-cell">{sample.accession}</div>
         <div className="sample-row-cell">{sample.source}</div>
-        <div className="sample-row-cell">{sample.librarySize}</div>
+        <div className="sample-row-cell">
+          {numberWithCommas(sample.librarySize)}
+        </div>
         <div className="sample-row-cell sample-row-description">
           {sample.description}
         </div>

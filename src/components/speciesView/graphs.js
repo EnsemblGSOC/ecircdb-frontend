@@ -4,7 +4,7 @@ import { Card, Icon } from 'semantic-ui-react'
 import GeneCountVsCircrnaCount from './geneCountVsCircrnaCount'
 import CircrnaPerChromosome from './circRNAPerChromosome'
 import CircRNANExons from './circrnaNExons'
-import CircrnaClassification from './circrnaClassification'
+import SampleClustering from './sampleClustering'
 import CircrnaNMethods from './circrnaNMethods'
 import AverageTPM from './averageTpm'
 import AverageJPM from './averageJpm'
@@ -52,9 +52,9 @@ export default class Graphs extends React.Component {
             values={data.circrnaNMethods.values}
             labels={data.circrnaNMethods.labels}
           />
-          <CircrnaClassification
-            values={data.circrnaClassification.values}
-            labels={data.circrnaClassification.labels}
+          <SampleClustering
+            tissueList={data.sampleCluster.tissueList}
+            data={data.sampleCluster.data}
           />
           <GeneCountVsCircrnaCount
             x={data.geneCountPerCircrnaCount.circrnaCount}
