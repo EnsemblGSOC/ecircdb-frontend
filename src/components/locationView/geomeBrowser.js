@@ -33,6 +33,7 @@ export default class GenomeBrowser extends React.Component {
         height={this.state.iFrameHeight}
         scrolling="no"
         className="browser-iframe"
+        frameBorder="0"
         ref="iframe"
       />
     )
